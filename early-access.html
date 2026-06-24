@@ -1,26 +1,34 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>VenueBrief Early Access</title>
+  <meta name="description" content="Request early access to VenueBrief, a lightweight hospitality shift brief builder.">
+  <meta name="theme-color" content="#070b14">
   <style>
-    :root{--bg:#070b14;--panel:#0f172a;--ink:#f8fafc;--muted:#cbd5e1;--line:rgba(255,255,255,.12);--gold:#d6a85c;--wine:#7f1d1d;--cream:#fff7ed;--creamText:#111827;--green:#2dd4bf}
-    *{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 15% 0%,rgba(127,29,29,.42),transparent 32%),radial-gradient(circle at 84% 12%,rgba(214,168,92,.22),transparent 28%),linear-gradient(180deg,#070b14,#0b1020 55%,#070b14);line-height:1.5}main{max-width:860px;margin:0 auto;padding:34px 18px 80px}.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.brand{font-weight:950;letter-spacing:-.055em;font-size:24px;display:flex;align-items:center;gap:10px}.mark{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--gold),#f4d79d 45%,var(--wine))}.card{background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));border:1px solid var(--line);border-radius:30px;padding:38px;box-shadow:0 24px 80px rgba(0,0,0,.42)}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(214,168,92,.35);background:rgba(214,168,92,.08);color:#f7d99d;border-radius:999px;padding:8px 12px;font-weight:900;font-size:13px;margin-bottom:18px}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(45,212,191,.11)}h1{font-size:clamp(42px,8vw,72px);line-height:.95;letter-spacing:-.08em;margin:0 0 18px}p{margin:0 0 14px;color:var(--muted)}.box{background:var(--cream);color:var(--creamText);border:1px solid rgba(214,168,92,.25);border-radius:20px;padding:20px;margin-top:16px}.box p,.box li{color:#475569}.box strong{color:#111827}.email{font-size:20px;font-weight:950;color:#111827;word-break:break-all;letter-spacing:-.025em}.subject{display:inline-block;background:#111827;color:#fff;border-radius:999px;padding:6px 10px;font-weight:900}ul{margin:8px 0 0;padding-left:20px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 18px;border-radius:999px;text-decoration:none;font-weight:950;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--ink)}.btn.primary{background:linear-gradient(135deg,#f5d08a,var(--gold));color:#111827;border-color:rgba(214,168,92,.75)}.note{font-size:13px;color:#94a3b8;margin-top:20px}@media(max-width:560px){main{padding:22px 14px 58px}.topbar{justify-content:flex-start}.card{padding:24px 18px;border-radius:22px}.actions .btn{width:100%}.email{font-size:17px}}
+    :root{--bg:#070b14;--ink:#f8fafc;--muted:#cbd5e1;--soft:#94a3b8;--gold:#d6a85c;--wine:#7f1d1d;--green:#2dd4bf;--line:rgba(255,255,255,.14)}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 15% 0,rgba(127,29,29,.42),transparent 34%),radial-gradient(circle at 85% 8%,rgba(214,168,92,.2),transparent 30%),linear-gradient(180deg,#070b14,#0b1020 52%,#070b14);line-height:1.5}.wrap{max-width:960px;margin:0 auto;padding:24px 20px 60px}a{color:inherit;text-decoration:none}.top{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:50px}.brand{display:flex;gap:12px;align-items:center;font-size:25px;font-weight:950;letter-spacing:-.055em}.mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--gold),#f4d79d,var(--wine));box-shadow:0 16px 38px rgba(214,168,92,.24)}nav{display:flex;gap:16px;color:var(--muted);font-size:14px}.card{border:1px solid var(--line);border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04));box-shadow:0 26px 80px rgba(0,0,0,.42);padding:34px}.badge{display:inline-flex;border:1px solid rgba(214,168,92,.36);background:rgba(214,168,92,.08);color:#f7d99d;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:850}h1{font-size:clamp(42px,7vw,72px);line-height:.96;letter-spacing:-.075em;margin:20px 0}.lead{font-size:20px;color:var(--muted);max-width:720px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:26px 0}.box{border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:20px;padding:18px}.box h3{margin:0 0 8px}.box p,.box li{color:var(--muted)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 18px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.06);font-weight:950}.btn.primary{background:linear-gradient(135deg,#f5d08a,var(--gold));color:#111827}.note{color:var(--soft);font-size:14px;margin-top:18px}.email{font-weight:950;color:#f7d99d}.footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:34px;padding-top:20px;color:var(--soft);font-size:13px}@media(max-width:720px){.grid{grid-template-columns:1fr}.top{align-items:flex-start}.top nav{display:none}.card{padding:24px 18px}.actions .btn{width:100%}}
   </style>
 </head>
 <body>
-  <main>
-    <div class="topbar"><div class="brand"><span class="mark"></span>VenueBrief</div></div>
+  <main class="wrap">
+    <header class="top"><div class="brand"><span class="mark"></span>VenueBrief</div><nav><a href="index.html?v=1.4">Landing</a><a href="sample-shift-brief.html?v=1.4">Sample brief</a><a href="https://yberium.github.io/venuebrief/v1-7-1.html">Demo</a></nav></header>
     <section class="card">
-      <div class="eyebrow"><span class="dot"></span> Early product validation</div>
-      <h1>Request early access.</h1>
-      <p>VenueBrief is currently being tested with selected hospitality operators who want a lightweight shift-brief workflow without heavy software.</p>
-      <div class="box"><p><strong>To request access, email:</strong></p><p class="email">musellafabio@gmail.com</p><p>Subject: <span class="subject">VenueBrief early access</span></p></div>
-      <div class="box"><p><strong>Please include:</strong></p><ul><li>venue type;</li><li>approximate team size per shift;</li><li>main stations or sections;</li><li>whether you want a free demo or paid setup.</li></ul></div>
-      <div class="actions"><a class="btn primary" href="index.html?v=1.1">Back to landing</a><a class="btn" href="https://yberium.github.io/venuebrief/v1-7-1.html">Try the live demo</a><a class="btn" href="sample-shift-brief.html?v=1.1">View sample brief</a></div>
-      <p class="note">Early access is currently managed directly by the founder.</p>
+      <div class="badge">Early access · founder-managed validation</div>
+      <h1>Pilot VenueBrief in your venue.</h1>
+      <p class="lead">VenueBrief helps hospitality managers turn rota information into a clear shift brief: staff, stations, handovers, warnings and print-ready output.</p>
+      <div class="grid">
+        <div class="box"><h3>Free demo</h3><p>Use the neutral demo and sample brief to understand the workflow.</p></div>
+        <div class="box"><h3>Early access · £19/month</h3><p>For one venue that wants to test VenueBrief in real service planning.</p></div>
+        <div class="box"><h3>Setup pack · £99</h3><p>One-off venue setup with station map, role template and sample shift brief.</p></div>
+        <div class="box"><h3>What to send</h3><ul><li>Venue type</li><li>Typical team size per shift</li><li>Main stations or sections</li><li>Whether you want demo or setup</li></ul></div>
+      </div>
+      <p>To request access, email <span class="email">musellafabio@gmail.com</span> with the subject <strong>VenueBrief early access</strong>.</p>
+      <div class="actions"><a class="btn primary" href="mailto:musellafabio@gmail.com?subject=VenueBrief%20early%20access">Email Fabio</a><a class="btn" href="https://yberium.github.io/venuebrief/v1-7-1.html">Try the live demo</a><a class="btn" href="sample-shift-brief.html?v=1.4">View sample brief</a></div>
+      <p class="note">VenueBrief is an early validation product. It does not process payroll, HR records, personal employee files or compliance decisions.</p>
     </section>
+    <footer class="footer"><span>VenueBrief is created by Fabio Musella — practical tools for hospitality service teams.</span><span>Early access is currently managed directly by Fabio Musella.</span></footer>
   </main>
 </body>
 </html>

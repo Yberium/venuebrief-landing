@@ -4,11 +4,11 @@ Date: 24 June 2026
 
 ## Current decision
 
-The commercial landing is frozen for validation.
+VenueBrief Landing v1.4 — Production Polish is the active public version for external validation.
 
 ## Main public landing
 
-https://yberium.github.io/venuebrief-landing/?v=1.3
+https://yberium.github.io/venuebrief-landing/?v=1.4
 
 This is the active commercial page for external testing.
 
@@ -21,13 +21,21 @@ This remains the stable tool build. Do not modify this from the landing reposito
 ## Supporting pages
 
 Sample brief:
-https://yberium.github.io/venuebrief-landing/sample-shift-brief.html?v=1.1
+https://yberium.github.io/venuebrief-landing/sample-shift-brief.html?v=1.4
 
 Early access:
-https://yberium.github.io/venuebrief-landing/early-access.html?v=1.2
+https://yberium.github.io/venuebrief-landing/early-access.html?v=1.4
 
 Cinematic concept:
 https://yberium.github.io/venuebrief-landing/cinematic.html?v=1
+
+## Creator attribution
+
+Use the commercial attribution line:
+
+VenueBrief · Created by Fabio Musella — practical tools for hospitality service teams
+
+This should remain subtle, footer-level and product-focused. Do not use inflated titles such as Founder, CEO, visionary, inventor or expert.
 
 ## Decision on cinematic concept
 

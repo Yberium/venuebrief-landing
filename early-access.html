@@ -5,47 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VenueBrief Early Access</title>
   <style>
-    :root { --text:#111827; --muted:#4b5563; --line:#e5e7eb; --bg:#f9fafb; --card:#ffffff; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--text); background:var(--bg); line-height:1.5; }
-    main { max-width:760px; margin:0 auto; padding:36px 20px 70px; }
-    .card { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:32px; box-shadow:0 8px 28px rgba(17,24,39,0.05); }
-    h1 { font-size:42px; line-height:1.05; letter-spacing:-0.06em; margin:0 0 16px; }
-    p { margin:0 0 14px; color:var(--muted); }
-    .box { border:1px solid var(--line); border-radius:14px; padding:16px; margin-top:18px; background:#fff; }
-    .email { font-weight:800; color:var(--text); word-break:break-all; }
-    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
-    .btn { display:inline-block; padding:12px 16px; border-radius:999px; text-decoration:none; font-weight:700; border:1px solid var(--text); color:var(--text); background:#fff; }
-    .btn.primary { background:var(--text); color:#fff; }
-    ul { margin:8px 0 0; padding-left:20px; color:var(--muted); }
+    :root{--bg:#070b14;--panel:#0f172a;--ink:#f8fafc;--muted:#cbd5e1;--line:rgba(255,255,255,.12);--gold:#d6a85c;--wine:#7f1d1d;--cream:#fff7ed;--creamText:#111827;--green:#2dd4bf}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 15% 0%,rgba(127,29,29,.42),transparent 32%),radial-gradient(circle at 84% 12%,rgba(214,168,92,.22),transparent 28%),linear-gradient(180deg,#070b14,#0b1020 55%,#070b14);line-height:1.5}main{max-width:860px;margin:0 auto;padding:34px 18px 80px}.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.brand{font-weight:950;letter-spacing:-.055em;font-size:24px;display:flex;align-items:center;gap:10px}.mark{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--gold),#f4d79d 45%,var(--wine))}.card{background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));border:1px solid var(--line);border-radius:30px;padding:38px;box-shadow:0 24px 80px rgba(0,0,0,.42)}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(214,168,92,.35);background:rgba(214,168,92,.08);color:#f7d99d;border-radius:999px;padding:8px 12px;font-weight:900;font-size:13px;margin-bottom:18px}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(45,212,191,.11)}h1{font-size:clamp(42px,8vw,72px);line-height:.95;letter-spacing:-.08em;margin:0 0 18px}p{margin:0 0 14px;color:var(--muted)}.box{background:var(--cream);color:var(--creamText);border:1px solid rgba(214,168,92,.25);border-radius:20px;padding:20px;margin-top:16px}.box p,.box li{color:#475569}.box strong{color:#111827}.email{font-size:20px;font-weight:950;color:#111827;word-break:break-all;letter-spacing:-.025em}.subject{display:inline-block;background:#111827;color:#fff;border-radius:999px;padding:6px 10px;font-weight:900}ul{margin:8px 0 0;padding-left:20px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 18px;border-radius:999px;text-decoration:none;font-weight:950;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--ink)}.btn.primary{background:linear-gradient(135deg,#f5d08a,var(--gold));color:#111827;border-color:rgba(214,168,92,.75)}.note{font-size:13px;color:#94a3b8;margin-top:20px}@media(max-width:560px){main{padding:22px 14px 58px}.topbar{justify-content:flex-start}.card{padding:24px 18px;border-radius:22px}.actions .btn{width:100%}.email{font-size:17px}}
   </style>
 </head>
 <body>
   <main>
+    <div class="topbar"><div class="brand"><span class="mark"></span>VenueBrief</div></div>
     <section class="card">
-      <h1>Request early access</h1>
-      <p>VenueBrief is currently in early product validation. Early access is intended for hospitality operators who want to test a lightweight shift-brief workflow without heavy software.</p>
-
-      <div class="box">
-        <p><strong>To request access, email:</strong></p>
-        <p class="email">musellafabio@gmail.com</p>
-        <p>Subject: <strong>VenueBrief early access</strong></p>
-      </div>
-
-      <div class="box">
-        <p><strong>Please include:</strong></p>
-        <ul>
-          <li>venue type;</li>
-          <li>approximate team size per shift;</li>
-          <li>main stations or sections;</li>
-          <li>whether you want a free demo or paid setup.</li>
-        </ul>
-      </div>
-
-      <div class="actions">
-        <a class="btn primary" href="index.html">Back to landing</a>
-        <a class="btn" href="https://yberium.github.io/venuebrief/v1-7-1.html">Try the demo</a>
-      </div>
+      <div class="eyebrow"><span class="dot"></span> Early product validation</div>
+      <h1>Request early access.</h1>
+      <p>VenueBrief is currently being tested with selected hospitality operators who want a lightweight shift-brief workflow without heavy software.</p>
+      <div class="box"><p><strong>To request access, email:</strong></p><p class="email">musellafabio@gmail.com</p><p>Subject: <span class="subject">VenueBrief early access</span></p></div>
+      <div class="box"><p><strong>Please include:</strong></p><ul><li>venue type;</li><li>approximate team size per shift;</li><li>main stations or sections;</li><li>whether you want a free demo or paid setup.</li></ul></div>
+      <div class="actions"><a class="btn primary" href="index.html">Back to landing</a><a class="btn" href="https://yberium.github.io/venuebrief/v1-7-1.html">Try the live demo</a><a class="btn" href="sample-shift-brief.html">View sample brief</a></div>
+      <p class="note">Do not use company email accounts for VenueBrief enquiries. Keep product communication separate and personal.</p>
     </section>
   </main>
 </body>

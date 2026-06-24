@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VenueBrief - Shift Brief Builder</title>
+  <style>
+    :root { --text:#111827; --muted:#4b5563; --line:#e5e7eb; --bg:#f9fafb; --card:#ffffff; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Arial, Helvetica, sans-serif; color:var(--text); background:var(--bg); line-height:1.5; }
+    .wrap { max-width:1040px; margin:0 auto; padding:28px 20px 64px; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 0 28px; }
+    .brand { font-weight:800; letter-spacing:-0.04em; font-size:24px; }
+    .nav { color:var(--muted); font-size:14px; }
+    .hero { background:var(--card); border:1px solid var(--line); border-radius:24px; padding:44px; box-shadow:0 8px 30px rgba(17,24,39,0.05); }
+    h1 { font-size:54px; line-height:1.03; letter-spacing:-0.06em; margin:0 0 18px; max-width:780px; }
+    .sub { font-size:20px; color:var(--muted); max-width:720px; margin:0 0 28px; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { display:inline-block; padding:13px 18px; border-radius:999px; text-decoration:none; font-weight:700; border:1px solid var(--text); color:var(--text); background:#fff; }
+    .btn.primary { background:var(--text); color:#fff; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:22px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:22px; }
+    h2 { font-size:28px; letter-spacing:-0.04em; margin:0 0 12px; }
+    h3 { margin:0 0 8px; font-size:18px; }
+    p { margin:0 0 12px; }
+    ul { margin:0; padding-left:20px; color:var(--muted); }
+    .section { margin-top:22px; }
+    .quote { font-size:24px; letter-spacing:-0.03em; font-weight:700; }
+    footer { margin-top:32px; color:var(--muted); font-size:13px; }
+    @media (max-width:760px){
+      .hero { padding:28px 22px; border-radius:18px; }
+      h1 { font-size:38px; }
+      .sub { font-size:17px; }
+      .grid { grid-template-columns:1fr; }
+      header { align-items:flex-start; flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="brand">VenueBrief</div>
+      <div class="nav">Lightweight shift brief builder for hospitality teams</div>
+    </header>
+
+    <section class="hero">
+      <h1>Turn your rota into a clear shift brief in minutes.</h1>
+      <p class="sub">VenueBrief helps hospitality managers convert daily rota information into a practical floor plan, station cover and handover brief - ready to print or share before service.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://yberium.github.io/venuebrief/v1-7-1.html">Try the demo</a>
+        <a class="btn" href="sample-shift-brief.html">View sample brief</a>
+        <a class="btn" href="mailto:musellafabio@gmail.com?subject=VenueBrief%20early%20access">Request early access</a>
+      </div>
+    </section>
+
+    <section class="grid section">
+      <div class="card">
+        <h3>The problem</h3>
+        <p>Rotas show who is working. They do not always show who owns each station, when handovers happen or what needs checking before service.</p>
+      </div>
+      <div class="card">
+        <h3>The solution</h3>
+        <p>VenueBrief converts the daily staff setup into a clear operational plan with stations, warnings and a print-ready brief.</p>
+      </div>
+      <div class="card">
+        <h3>The fit</h3>
+        <p>Built for restaurants, wine bars, hospitality venues, events teams and small operators who need clarity without heavy software.</p>
+      </div>
+    </section>
+
+    <section class="card section">
+      <h2>What it does</h2>
+      <ul>
+        <li>Daily staff setup</li>
+        <li>Venue-specific custom stations</li>
+        <li>Station ownership and handover visibility</li>
+        <li>Warning-based review without blocking the shift</li>
+        <li>Clean print/PDF output</li>
+        <li>No login, no backend and no heavy implementation</li>
+      </ul>
+    </section>
+
+    <section class="card section">
+      <p class="quote">VenueBrief does not replace your rota system. It turns your rota into an operational plan your team can actually use.</p>
+    </section>
+
+    <section class="grid section">
+      <div class="card">
+        <h3>Free demo</h3>
+        <p>Neutral sample venue with fake staff and custom stations.</p>
+      </div>
+      <div class="card">
+        <h3>Early access</h3>
+        <p>£19/month per venue for selected operators.</p>
+      </div>
+      <div class="card">
+        <h3>Setup pack</h3>
+        <p>£99 one-off setup for venue-specific stations and sample brief.</p>
+      </div>
+    </section>
+
+    <footer>
+      VenueBrief is currently in early product validation. It is intentionally lightweight and does not provide payroll, HR, time tracking or compliance functionality.
+    </footer>
+  </main>
+</body>
+</html>

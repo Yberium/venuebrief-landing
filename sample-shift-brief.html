@@ -5,93 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VenueBrief Sample Shift Brief</title>
   <style>
-    :root { --text:#111827; --muted:#4b5563; --line:#d1d5db; --bg:#f9fafb; --card:#ffffff; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--text); background:var(--bg); line-height:1.45; }
-    main { max-width:900px; margin:0 auto; padding:28px 18px 60px; }
-    .sheet { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:28px; }
-    h1 { margin:0 0 6px; font-size:34px; letter-spacing:-0.05em; }
-    h2 { margin:24px 0 10px; font-size:20px; letter-spacing:-0.03em; }
-    p { margin:0 0 10px; }
-    .muted { color:var(--muted); }
-    .top { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:16px; }
-    table { width:100%; border-collapse:collapse; margin-top:8px; }
-    th, td { text-align:left; border-bottom:1px solid var(--line); padding:9px 6px; vertical-align:top; }
-    th { font-size:13px; color:var(--muted); }
-    .pill { display:inline-block; border:1px solid var(--line); border-radius:999px; padding:4px 9px; font-size:13px; background:#fff; }
-    .warning { border:1px solid var(--line); background:#fefce8; border-radius:12px; padding:12px; }
-    .actions { margin:18px 0; display:flex; gap:10px; flex-wrap:wrap; }
-    a, button { font:inherit; }
-    .btn { display:inline-block; padding:10px 14px; border-radius:999px; text-decoration:none; font-weight:700; border:1px solid var(--text); color:var(--text); background:#fff; cursor:pointer; }
-    .btn.primary { background:var(--text); color:#fff; }
-    @media print {
-      body { background:#fff; }
-      main { padding:0; max-width:none; }
-      .actions { display:none; }
-      .sheet { border:none; border-radius:0; padding:0; }
-    }
+    :root{--bg:#070b14;--panel:#0f172a;--ink:#f8fafc;--muted:#cbd5e1;--line:rgba(255,255,255,.12);--gold:#d6a85c;--wine:#7f1d1d;--paper:#fffaf2;--paperText:#111827;--paperMuted:#4b5563;--paperLine:#e7d8c3}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 15% 0%,rgba(127,29,29,.42),transparent 32%),linear-gradient(180deg,#070b14,#0b1020 55%,#070b14);line-height:1.45}.wrap{max-width:980px;margin:0 auto;padding:26px 18px 70px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px}.brand{font-weight:950;letter-spacing:-.055em;font-size:24px;display:flex;align-items:center;gap:10px}.mark{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--gold),#f4d79d 45%,var(--wine))}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 15px;border-radius:999px;text-decoration:none;font-weight:900;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--ink);cursor:pointer}.btn.primary{background:linear-gradient(135deg,#f5d08a,var(--gold));color:#111827;border-color:rgba(214,168,92,.7)}.sheet{background:var(--paper);color:var(--paperText);border:1px solid rgba(255,255,255,.18);border-radius:28px;padding:30px;box-shadow:0 24px 80px rgba(0,0,0,.4)}.sheetHead{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;border-bottom:1px solid var(--paperLine);padding-bottom:18px;margin-bottom:18px}h1{font-size:42px;line-height:1.02;letter-spacing:-.065em;margin:0 0 8px}h2{font-size:22px;letter-spacing:-.04em;margin:24px 0 10px}p{margin:0 0 10px}.muted{color:var(--paperMuted)}.pill{display:inline-flex;border-radius:999px;padding:7px 10px;background:#fef3c7;color:#7c2d12;font-size:12px;font-weight:950;white-space:nowrap}table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--paperLine);border-radius:16px;overflow:hidden}th,td{text-align:left;border-bottom:1px solid var(--paperLine);padding:11px 10px;vertical-align:top}th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#6b7280;background:#fff7ed}td{font-size:14px}.checks{background:#fff7ed;border:1px solid #fed7aa;border-radius:18px;padding:16px;color:#7c2d12}.checks p{margin-bottom:8px}.note{background:#111827;color:#f8fafc;border-radius:18px;padding:16px;border:1px solid rgba(17,24,39,.12)}.note .muted{color:#cbd5e1}@media(max-width:640px){.wrap{padding:18px 12px 50px}.topbar{align-items:flex-start;flex-direction:column}.actions{width:100%}.btn{flex:1}.sheet{padding:18px;border-radius:20px}h1{font-size:34px}.sheetHead{display:block}.pill{margin-top:10px}table{display:block;overflow-x:auto;white-space:nowrap}}@media print{body{background:#fff}.wrap{max-width:none;padding:0}.topbar{display:none}.sheet{box-shadow:none;border:none;border-radius:0;padding:0;background:#fff;color:#111827}.note{background:#fff;color:#111827;border:1px solid #ddd}.note .muted{color:#4b5563}}
   </style>
 </head>
 <body>
-  <main>
-    <div class="actions">
-      <a class="btn" href="index.html">Back to landing</a>
-      <button class="btn primary" onclick="window.print()">Print sample brief</button>
+  <main class="wrap">
+    <div class="topbar">
+      <div class="brand"><span class="mark"></span>VenueBrief</div>
+      <div class="actions"><a class="btn" href="index.html">Back to landing</a><button class="btn primary" onclick="window.print()">Print sample brief</button></div>
     </div>
-
     <section class="sheet">
-      <div class="top">
-        <div>
-          <h1>VenueBrief Sample Shift Brief</h1>
-          <p class="muted">Harbour House Wine Bar · Example Friday · Busy evening service</p>
-        </div>
-        <div>
-          <span class="pill">Printable with warnings</span>
-        </div>
+      <div class="sheetHead">
+        <div><h1>Sample Shift Brief</h1><p class="muted">Harbour House Wine Bar · Example Friday · Busy evening service</p></div>
+        <span class="pill">Printable with warnings</span>
       </div>
-
       <h2>Team deployment</h2>
-      <table>
-        <thead>
-          <tr><th>Staff</th><th>Role</th><th>Time</th><th>Primary station</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Maya</td><td>General Manager</td><td>10:00-18:00</td><td>Opening setup / manager cover</td></tr>
-          <tr><td>Leo</td><td>Assistant Manager</td><td>15:00-00:30</td><td>Shift lead / floor support</td></tr>
-          <tr><td>Amira</td><td>Supervisor</td><td>16:00-00:30</td><td>Bar & Till</td></tr>
-          <tr><td>Noah</td><td>Wine Advisor</td><td>14:00-22:00</td><td>Wine Machines</td></tr>
-          <tr><td>Sofia</td><td>Wine Advisor</td><td>17:00-23:30</td><td>Host / Entrance</td></tr>
-          <tr><td>Ethan</td><td>Floor Team</td><td>18:00-00:00</td><td>Floor Coverage</td></tr>
-          <tr><td>Grace</td><td>Floor Team</td><td>18:00-22:30</td><td>Terrace</td></tr>
-          <tr><td>Luca</td><td>Bar Support</td><td>17:00-00:30</td><td>Glasses / Pass / Cutlery</td></tr>
-        </tbody>
-      </table>
-
+      <table><thead><tr><th>Staff</th><th>Role</th><th>Time</th><th>Primary station</th></tr></thead><tbody><tr><td>Maya</td><td>General Manager</td><td>10:00-18:00</td><td>Opening setup / manager cover</td></tr><tr><td>Leo</td><td>Assistant Manager</td><td>15:00-00:30</td><td>Shift lead / floor support</td></tr><tr><td>Amira</td><td>Supervisor</td><td>16:00-00:30</td><td>Bar & Till</td></tr><tr><td>Noah</td><td>Wine Advisor</td><td>14:00-22:00</td><td>Wine Machines</td></tr><tr><td>Sofia</td><td>Wine Advisor</td><td>17:00-23:30</td><td>Host / Entrance</td></tr><tr><td>Ethan</td><td>Floor Team</td><td>18:00-00:00</td><td>Floor Coverage</td></tr><tr><td>Grace</td><td>Floor Team</td><td>18:00-22:30</td><td>Terrace</td></tr><tr><td>Luca</td><td>Bar Support</td><td>17:00-00:30</td><td>Glasses / Pass / Cutlery</td></tr></tbody></table>
       <h2>Coverage & handovers</h2>
-      <table>
-        <thead>
-          <tr><th>Area</th><th>Owner</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Host / Entrance</td><td>Sofia</td><td>Keep entrance clear and manage late arrivals.</td></tr>
-          <tr><td>Bar & Till</td><td>Amira</td><td>Dedicated focus during peak service.</td></tr>
-          <tr><td>Wine Machines</td><td>Noah</td><td>Check bottle levels and guest guidance.</td></tr>
-          <tr><td>Floor Coverage</td><td>Ethan</td><td>Support tables, guest flow and recovery.</td></tr>
-          <tr><td>Glasses / Pass / Cutlery</td><td>Luca</td><td>Keep pass clean and glassware moving.</td></tr>
-          <tr><td>Terrace</td><td>Grace</td><td>Handover to Ethan after 22:30.</td></tr>
-          <tr><td>Private Tasting Table</td><td>Leo</td><td>Custom station added for this venue; included in the final brief.</td></tr>
-        </tbody>
-      </table>
-
+      <table><thead><tr><th>Area</th><th>Owner</th><th>Notes</th></tr></thead><tbody><tr><td>Host / Entrance</td><td>Sofia</td><td>Keep entrance clear and manage late arrivals.</td></tr><tr><td>Bar & Till</td><td>Amira</td><td>Dedicated focus during peak service.</td></tr><tr><td>Wine Machines</td><td>Noah</td><td>Check bottle levels and guest guidance.</td></tr><tr><td>Floor Coverage</td><td>Ethan</td><td>Support tables, guest flow and recovery.</td></tr><tr><td>Glasses / Pass / Cutlery</td><td>Luca</td><td>Keep pass clean and glassware moving.</td></tr><tr><td>Terrace</td><td>Grace</td><td>Handover to Ethan after 22:30.</td></tr><tr><td>Private Tasting Table</td><td>Leo</td><td>Custom station added for this venue; included in the final brief.</td></tr></tbody></table>
       <h2>Manager checks</h2>
-      <div class="warning">
-        <p><strong>Review before service:</strong> Private Tasting Table is custom and should be confirmed before peak trading.</p>
-        <p><strong>Handover:</strong> Terrace cover changes after 22:30. Confirm Ethan can absorb terrace/floor coverage.</p>
-        <p><strong>Closing mode:</strong> After 23:30, remaining team should group responsibilities rather than treat each station as isolated.</p>
-      </div>
-
+      <div class="checks"><p><strong>Review before service:</strong> Private Tasting Table is custom and should be confirmed before peak trading.</p><p><strong>Handover:</strong> Terrace cover changes after 22:30. Confirm Ethan can absorb terrace/floor coverage.</p><p><strong>Closing mode:</strong> After 23:30, remaining team should group responsibilities rather than treat each station as isolated.</p></div>
       <h2>Product note</h2>
-      <p class="muted">This is a neutral sample brief. VenueBrief is not a rota builder, payroll system or HR platform. It turns an existing rota into a clear operational shift plan.</p>
+      <div class="note"><p class="muted">This is a neutral sample brief. VenueBrief is not a rota builder, payroll system or HR platform. It turns an existing rota into a clear operational shift plan.</p></div>
     </section>
   </main>
 </body>

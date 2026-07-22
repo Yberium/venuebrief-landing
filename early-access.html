@@ -15,7 +15,8 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yberium.com/early-access.html">
   <link rel="stylesheet" href="assets/yberium-pulse-fonts.css?v=1.0">
-  <link rel="stylesheet" href="assets/yberium-pulse.css?v=1.1">
+  <link rel="stylesheet" href="assets/yberium-pulse.css?v=1.2">
+  <script src="assets/pilot-interest.js?v=1.0" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -51,8 +52,8 @@
           <h3>Selected real shifts</h3>
           <div class="price">Invitation <small>only</small></div>
           <p>Test whether Pulse saves manager time, catches useful gaps and produces outputs the team would actually use.</p>
-          <ul class="price-list"><li>Limited pilot venues</li><li>No card or recurring payment</li><li>Direct product feedback loop</li></ul>
-          <a class="button primary" href="mailto:musellafabio@gmail.com?subject=Yberium%20Pulse%20pilot%20interest&amp;body=Venue%20type%3A%0ATeam%20size%3A%0ABiggest%20pre-service%20problem%3A%0A">Register interest</a>
+          <ul class="price-list"><li>Limited pilot venues</li><li>No card or recurring payment</li><li>Structured product feedback</li></ul>
+          <a class="button primary" href="#pilot-form">Register interest</a>
         </article>
 
         <article id="launch-status" class="price-card">
@@ -65,25 +66,57 @@
         </article>
 
         <article class="price-card">
-          <span class="price-label">What to send</span>
-          <h3>Keep the first message simple</h3>
-          <p>General operating context is enough to assess whether a pilot makes sense.</p>
-          <ul class="price-list"><li>Venue type and location</li><li>Typical team size</li><li>Main service areas</li><li>Biggest pre-service problem</li><li>How often the problem occurs</li></ul>
+          <span class="price-label">What we ask</span>
+          <h3>Only operating context</h3>
+          <p>General information is enough to assess whether a pilot makes sense.</p>
+          <ul class="price-list"><li>Venue type and location</li><li>Typical shift team size</li><li>Biggest pre-service problem</li><li>How often it occurs</li><li>A professional contact email</li></ul>
           <a class="button" href="sample-shift-brief.html">View sample brief</a>
         </article>
       </div>
 
-      <section id="contact" class="contact-panel" aria-labelledby="contact-title">
-        <div>
-          <h2 id="contact-title">Register interest in the pilot.</h2>
-          <p>No payment is requested. A short operational description is enough to start the conversation.</p>
+      <section id="pilot-form" class="pilot-form-panel" aria-labelledby="pilot-form-title">
+        <div class="pilot-form-intro">
+          <p class="eyebrow">Pilot registration</p>
+          <h2 id="pilot-form-title">Tell Yberium about the operation, not the staff.</h2>
+          <p>Complete the short form below. Do not include employee names, rota files, confidential figures or personal staff records.</p>
+          <ul class="pilot-assurance-list"><li>No card details</li><li>No subscription</li><li>Reviewed before invitation</li></ul>
         </div>
-        <a class="button primary" href="mailto:musellafabio@gmail.com?subject=Yberium%20Pulse%20pilot%20interest&amp;body=Venue%20type%3A%0ATeam%20size%3A%0ABiggest%20pre-service%20problem%3A%0A">Contact Yberium</a>
+
+        <div class="pilot-form-shell">
+          <form id="pilotInterestForm" class="pilot-form" data-endpoint="https://venuebrief-api.onrender.com/pilot-interest" novalidate>
+            <div class="pilot-field-grid">
+              <label class="pilot-field"><span>Your name</span><input name="contactName" autocomplete="name" maxlength="120" required></label>
+              <label class="pilot-field"><span>Work email</span><input name="email" type="email" autocomplete="email" maxlength="254" required></label>
+              <label class="pilot-field"><span>Venue or operator</span><input name="venueName" autocomplete="organization" maxlength="160" required></label>
+              <label class="pilot-field"><span>Venue type</span><select name="venueType" required><option value="">Choose one</option><option value="restaurant">Restaurant</option><option value="bar">Bar or wine bar</option><option value="hotel">Hotel</option><option value="pub">Pub or gastropub</option><option value="cafe">Café</option><option value="event-venue">Event venue</option><option value="other">Other hospitality</option></select></label>
+              <label class="pilot-field"><span>Location</span><input name="location" autocomplete="address-level2" maxlength="160" placeholder="City, region or country" required></label>
+              <label class="pilot-field"><span>Typical shift team size</span><input name="teamSize" type="number" inputmode="numeric" min="1" max="500" required></label>
+              <label class="pilot-field"><span>How often does the problem occur?</span><select name="problemFrequency" required><option value="">Choose one</option><option value="daily">Daily</option><option value="weekly">Weekly</option><option value="monthly">Monthly</option><option value="occasionally">Occasionally</option></select></label>
+              <label class="pilot-field pilot-field-wide"><span>Biggest pre-service problem</span><textarea name="operationalProblem" minlength="20" maxlength="1500" rows="6" placeholder="Example: late finishes create unclear handovers, so the closing owner is often decided during service." required></textarea></label>
+            </div>
+
+            <label class="pilot-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+            <label class="pilot-consent"><input name="consent" type="checkbox" required><span>Yberium may use these details to assess the pilot request and contact me about Yberium Pulse.</span></label>
+
+            <div class="pilot-form-actions">
+              <button id="pilotFormSubmit" class="button primary" type="submit" disabled>Register pilot interest</button>
+              <p id="pilotFormStatus" class="pilot-form-status" role="status" aria-live="polite">Checking pilot registration availability…</p>
+            </div>
+          </form>
+
+          <section id="pilotFormSuccess" class="pilot-form-success" tabindex="-1" hidden aria-labelledby="pilot-success-title">
+            <span class="price-label">Request received</span>
+            <h3 id="pilot-success-title">Your pilot interest is registered.</h3>
+            <p>Yberium will review the operating context before deciding whether the venue fits the current pilot phase.</p>
+            <div class="pilot-reference"><span>Reference</span><strong id="pilotFormReference"></strong></div>
+            <a class="button" href="https://yberium.github.io/Yberium-venuebrief-demo/">Return to the demo</a>
+          </section>
+        </div>
       </section>
 
       <div class="legal-note">
         <strong aria-hidden="true">i</strong>
-        <p>This page does not collect card details or offer a paid subscription. Do not send personal staff records or confidential venue information. General operational context is sufficient for pilot assessment.</p>
+        <p>This page does not collect card details or offer a paid subscription. Pilot registrations are used only to assess and manage the Yberium Pulse pilot. Do not submit personal staff records or confidential venue information.</p>
       </div>
     </div>
   </main>
@@ -93,7 +126,7 @@
       <div class="footer-inner">
         <div><a class="brand" href="index.html" aria-label="Yberium Pulse home"><img src="assets/yberium-pulse-mark.svg" alt=""><span>Yberium</span> <strong>Pulse</strong></a><p class="footer-copy">Shift readiness and operational control for hospitality teams. Created by Fabio Musella.</p></div>
         <nav class="footer-links" aria-label="Product links"><strong>Product</strong><a href="index.html#product">Modules</a><a href="sample-shift-brief.html">Sample brief</a><a href="https://yberium.github.io/Yberium-venuebrief-demo/">Public demo</a></nav>
-        <nav class="footer-links" aria-label="Contact links"><strong>Get involved</strong><a href="feedback.html">Give feedback</a><a href="mailto:musellafabio@gmail.com?subject=Yberium%20Pulse">Contact Yberium</a></nav>
+        <nav class="footer-links" aria-label="Contact links"><strong>Get involved</strong><a href="#pilot-form">Pilot registration</a><a href="feedback.html">Give feedback</a><a href="#launch-status">Commercial status</a></nav>
       </div>
       <div class="footer-bottom"><span>© 2026 Yberium Pulse.</span><span>Know the shift before it starts.</span></div>
     </div>

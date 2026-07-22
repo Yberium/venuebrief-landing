@@ -1,0 +1,35 @@
+name: Pilot Interest Checks
+
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'early-access.html'
+      - 'feedback.html'
+      - 'assets/pilot-interest.js'
+      - 'assets/pilot-interest.css'
+      - 'tests/pilot-interest-smoke.mjs'
+      - '.github/workflows/pilot-interest-checks.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'early-access.html'
+      - 'feedback.html'
+      - 'assets/pilot-interest.js'
+      - 'assets/pilot-interest.css'
+      - 'tests/pilot-interest-smoke.mjs'
+      - '.github/workflows/pilot-interest-checks.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node tests/pilot-interest-smoke.mjs

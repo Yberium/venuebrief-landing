@@ -27,6 +27,13 @@ html {
   scroll-behavior: smooth;
 }
 
+#product,
+#how-it-works,
+#outputs,
+#pricing {
+  scroll-margin-top: 96px;
+}
+
 body {
   margin: 0;
   color: var(--ink);

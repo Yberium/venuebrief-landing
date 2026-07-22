@@ -13,7 +13,8 @@ This branch implements the approved rebrand from VenueBrief to **Yberium Pulse**
 ## Approved visual system
 
 - Graphite `#171A1F`
-- Signal Lime `#B7F34A`
+- Signal Lime `#B7F34A` for marks, buttons and accents on dark surfaces
+- Accessible Green `#4F7D00` for green text and borders on light surfaces
 - Operational Green `#2FBF71`
 - Amber `#F4B740`
 - Critical Red `#E05252`

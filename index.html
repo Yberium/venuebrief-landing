@@ -16,7 +16,10 @@
   <meta property="og:url" content="https://yberium.com/">
   <meta property="og:site_name" content="Yberium Pulse">
   <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="assets/yberium-pulse.css?v=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/yberium-pulse.css?v=1.1">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -86,22 +89,22 @@
               <section class="metric-card">
                 <div class="metric-head"><strong>Shift readiness</strong><span>Today</span></div>
                 <div class="readiness-layout">
-                  <div class="readiness-ring">92%</div>
-                  <div class="status-copy"><strong>On track</strong><p>Everything looks good for the upcoming shift.</p></div>
+                  <div class="readiness-ring"><span>82%</span></div>
+                  <div class="status-copy"><strong>Manager check</strong><p>Four roles still need ownership before service.</p></div>
                 </div>
               </section>
 
               <section class="metric-card">
                 <div class="metric-head"><strong>Team coverage</strong><span>Today</span></div>
-                <div class="coverage-value"><strong>78%</strong><span>28 / 36 roles filled</span></div>
-                <div class="coverage-bar" role="img" aria-label="78 percent coverage"><i></i><i></i><i></i></div>
-                <span class="metric-link">8 roles open · View gaps →</span>
+                <div class="coverage-value"><strong>89%</strong><span>32 / 36 roles filled</span></div>
+                <div class="coverage-bar" role="img" aria-label="89 percent coverage"><i></i><i></i><i></i></div>
+                <span class="metric-link">4 roles open · View gaps →</span>
               </section>
 
               <section class="metric-card">
-                <div class="metric-head"><strong>Risks &amp; alerts</strong><span>3 open</span></div>
+                <div class="metric-head"><strong>Risks &amp; alerts</strong><span>2 open</span></div>
                 <ul class="risk-list">
-                  <li><span><i class="risk-dot red"></i>Staffing risks</span><strong>2</strong></li>
+                  <li><span><i class="risk-dot red"></i>Staffing risks</span><strong>1</strong></li>
                   <li><span><i class="risk-dot amber"></i>Stock issue</span><strong>1</strong></li>
                   <li><span><i class="risk-dot green"></i>Critical blockers</span><strong>0</strong></li>
                 </ul>
@@ -119,32 +122,36 @@
         </aside>
       </section>
 
-      <section id="product" class="module-strip" aria-label="Yberium Pulse modules">
-        <article class="module-card">
-          <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5h6M9 9h6M9 13h4M7 3h10a2 2 0 0 1 2 2v16H5V5a2 2 0 0 1 2-2Z"/><path d="M9 3V1h6v2"/></svg></span>
-          <h3>Pulse Brief</h3>
-          <p>Plan the shift. Set service goals, events and priorities.</p>
-        </article>
-        <article class="module-card">
-          <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 11 18-8-8 18-2-8-8-2Z"/><path d="m11 13 4-4"/></svg></span>
-          <h3>Pulse Relay</h3>
-          <p>Turn the reviewed plan into messages people can use.</p>
-        </article>
-        <article class="module-card">
-          <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 12 4 8l4-4 4 4M16 12l4 4-4 4-4-4"/><path d="m9 9 6 6M4 8v8a4 4 0 0 0 4 4h2M20 16V8a4 4 0 0 0-4-4h-2"/></svg></span>
-          <h3>Pulse Handover</h3>
-          <p>Capture what matters and pass the baton with confidence.</p>
-        </article>
-        <article class="module-card">
-          <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10h4v10M10 20V4h4v16M16 20v-7h4v7"/></svg></span>
-          <h3>Pulse Review</h3>
-          <p>Close the loop. Record outcomes, follow-ups and lessons.</p>
-        </article>
-        <article class="module-card">
-          <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="18" r="2"/></svg></span>
-          <h3>Pulse Control</h3>
-          <p>See readiness, risk, coverage and next actions at a glance.</p>
-        </article>
+      <section id="product" class="control-layer" aria-labelledby="control-layer-title">
+        <div class="control-layer-head">
+          <div>
+            <p class="control-layer-kicker">Operational command layer</p>
+            <h2 id="control-layer-title">Pulse Control</h2>
+          </div>
+          <p>One calm view containing the complete Brief → Relay → Handover → Review cycle.</p>
+        </div>
+        <div class="module-strip" aria-label="Workflow inside Pulse Control">
+          <article class="module-card">
+            <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5h6M9 9h6M9 13h4M7 3h10a2 2 0 0 1 2 2v16H5V5a2 2 0 0 1 2-2Z"/><path d="M9 3V1h6v2"/></svg></span>
+            <h3>Pulse Brief</h3>
+            <p>Plan the shift. Set service goals, events and priorities.</p>
+          </article>
+          <article class="module-card">
+            <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 11 18-8-8 18-2-8-8-2Z"/><path d="m11 13 4-4"/></svg></span>
+            <h3>Pulse Relay</h3>
+            <p>Turn the reviewed plan into messages people can use.</p>
+          </article>
+          <article class="module-card">
+            <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 12 4 8l4-4 4 4M16 12l4 4-4 4-4-4"/><path d="m9 9 6 6M4 8v8a4 4 0 0 0 4 4h2M20 16V8a4 4 0 0 0-4-4h-2"/></svg></span>
+            <h3>Pulse Handover</h3>
+            <p>Capture what matters and pass the baton with confidence.</p>
+          </article>
+          <article class="module-card">
+            <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10h4v10M10 20V4h4v16M16 20v-7h4v7"/></svg></span>
+            <h3>Pulse Review</h3>
+            <p>Close the loop. Record outcomes, follow-ups and lessons.</p>
+          </article>
+        </div>
       </section>
     </div>
 

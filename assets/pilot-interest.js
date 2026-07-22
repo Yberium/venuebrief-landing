@@ -15,8 +15,18 @@
     return body;
   }
 
+  function ensureStyles(document) {
+    if (document.querySelector('link[data-yberium-pilot-styles]')) return;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'assets/pilot-interest.css?v=1.0';
+    link.dataset.yberiumPilotStyles = 'true';
+    document.head.appendChild(link);
+  }
+
   function bind(windowObject) {
     const { document } = windowObject;
+    ensureStyles(document);
     const form = document.getElementById('pilotInterestForm');
     const status = document.getElementById('pilotFormStatus');
     const success = document.getElementById('pilotFormSuccess');
@@ -102,5 +112,5 @@
   }
 
   if (root.document) bind(root);
-  root.YberiumPilotInterest = { bind, readJson };
+  root.YberiumPilotInterest = { bind, readJson, ensureStyles };
 })(typeof globalThis !== 'undefined' ? globalThis : this);

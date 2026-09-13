@@ -1,17 +1,12 @@
 {
-  "name": "Yberium Pulse",
-  "short_name": "Pulse",
-  "description": "Shift readiness and operational control for hospitality teams.",
+  "name": "Yberium",
+  "short_name": "Yberium",
+  "description": "Structured, reviewable operational guidance for hospitality.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F5F6F7",
-  "theme_color": "#171A1F",
+  "background_color": "#F7F5F0",
+  "theme_color": "#F7F5F0",
   "icons": [
-    {
-      "src": "assets/yberium-pulse-mark.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    }
+    {"src": "assets/yberium-pulse-mark.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}
   ]
 }

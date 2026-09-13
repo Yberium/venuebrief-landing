@@ -1,224 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yberium Pulse — AI-assisted shift readiness for hospitality</title>
-  <meta name="description" content="Speak, scan or paste the rota. Yberium Pulse builds a manager-reviewed plan, verifies it with deterministic rules, applies only safe fixes and generates the team brief.">
-  <meta name="theme-color" content="#171A1F">
+  <title>Yberium — A new way to run hospitality</title>
+  <meta name="description" content="Yberium turns supported hospitality operations information into structured, reviewable guidance without inventing what is not known.">
+  <meta name="theme-color" content="#F7F5F0">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://yberium.com/">
-  <link rel="icon" href="assets/yberium-pulse-mark.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
-  <meta property="og:title" content="Yberium Pulse — Know the shift before it starts">
-  <meta property="og:description" content="AI-assisted planning, deterministic readiness checks and manager-controlled shift repair for hospitality teams.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yberium.com/">
-  <meta property="og:site_name" content="Yberium Pulse">
-  <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="assets/yberium-pulse-fonts.css?v=1.0">
-  <link rel="stylesheet" href="assets/yberium-pulse.css?v=1.1">
+  <link rel="stylesheet" href="assets/yberium-fonts.css">
+  <link rel="stylesheet" href="assets/yberium.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="Yberium Pulse home">
-        <img src="assets/yberium-pulse-mark.svg" alt="">
-        <span>Yberium</span> <strong>Pulse</strong>
-      </a>
-      <nav class="site-nav" aria-label="Primary navigation">
+    <a class="wordmark" href="index.html" aria-label="Yberium home">YBERIUM</a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#product">Product</a>
+      <a href="#approach">Approach</a>
+      <a href="#available">Available now</a>
+    </nav>
+    <nav class="policy-nav" aria-label="Policy and company links">
+      <a href="mailto:support@yberium.com">Support</a>
+      <a href="mailto:privacy@yberium.com">Privacy</a>
+      <span aria-disabled="true" title="Public Terms destination not yet verified">Terms</span>
+      <span aria-disabled="true" title="Public Company destination not yet verified">Company</span>
+    </nav>
+    <details class="mobile-menu">
+      <summary aria-label="Open navigation"><span aria-hidden="true">☰</span></summary>
+      <nav aria-label="Mobile navigation">
         <a href="#product">Product</a>
-        <a href="#how-it-works">How it works</a>
-        <a href="#outputs">Outputs</a>
-        <a href="#pricing">Pilot access</a>
+        <a href="#approach">Approach</a>
+        <a href="#available">Available now</a>
+        <a href="mailto:support@yberium.com">Support</a>
+        <a href="mailto:privacy@yberium.com">Privacy</a>
+        <span aria-disabled="true">Terms</span>
+        <span aria-disabled="true">Company</span>
       </nav>
-      <div class="header-actions">
-        <a class="button quiet" href="sample-shift-brief.html">View sample</a>
-        <a class="button primary" href="https://yberium.github.io/Yberium-venuebrief-demo/">Try the demo</a>
-      </div>
-    </div>
+    </details>
   </header>
 
   <main id="main">
-    <div class="page-shell">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">AI-assisted shift readiness for hospitality</p>
-          <h1 id="hero-title">Add the rota. <em>Pulse fixes the plan.</em></h1>
-          <p class="hero-lead">Speak, scan or paste today’s rota. Pulse builds a manager-reviewed operational plan, checks it against deterministic rules and applies only the fixes that are safe.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="https://yberium.github.io/Yberium-venuebrief-demo/">Try the interactive demo <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="button" href="sample-shift-brief.html">View sample brief</a>
-          </div>
-          <ul class="trust-list" aria-label="Product principles">
-            <li>AI proposes</li>
-            <li>Rules verify</li>
-            <li>Manager decides</li>
-          </ul>
-        </div>
-
-        <aside class="product-preview" aria-label="Illustrative Yberium Pulse control flow">
-          <div class="preview-rail" aria-hidden="true">
-            <div class="preview-brand"><img src="assets/yberium-pulse-mark.svg" alt=""><span>Yberium <strong>Pulse</strong></span></div>
-            <ul class="preview-menu">
-              <li>Pulse Control</li>
-              <li>Shifts</li>
-              <li>Outputs</li>
-              <li>Venue</li>
-              <li>Review</li>
-            </ul>
-            <div class="preview-person">Alex M.<br>General Manager</div>
-          </div>
-
-          <div class="preview-main">
-            <div class="preview-topbar">
-              <div><h2>Friday dinner</h2><p>Harbour House · 120 covers</p></div>
-              <span class="preview-tag">Product preview</span>
-            </div>
-            <div class="dashboard-grid">
-              <section class="metric-card">
-                <div class="metric-head"><strong>Input</strong><span>Voice briefing</span></div>
-                <div class="status-copy"><strong>Rota understood</strong><p>Five people, one event and the service window extracted for manager review.</p></div>
-              </section>
-              <section class="metric-card">
-                <div class="metric-head"><strong>Readiness Core</strong><span>3 issues</span></div>
-                <ul class="risk-list">
-                  <li><span><i class="risk-dot green"></i>Safe fixes</span><strong>2</strong></li>
-                  <li><span><i class="risk-dot amber"></i>Manager decisions</span><strong>1</strong></li>
-                  <li><span><i class="risk-dot red"></i>Invented staff</span><strong>0</strong></li>
-                </ul>
-              </section>
-              <section class="metric-card">
-                <div class="metric-head"><strong>Automatic repair</strong><span>Preview first</span></div>
-                <p class="handover-copy">Move one break outside peak and assign the late Host handover to a valid existing team member.</p>
-                <span class="metric-link">Apply safe fixes →</span>
-              </section>
-              <section class="metric-card">
-                <div class="metric-head"><strong>Outputs</strong><span>After review</span></div>
-                <p class="handover-copy">Pulse Brief and Pulse Relay are generated from the same verified plan.</p>
-                <span class="metric-link">Ready to communicate →</span>
-              </section>
-              <p class="preview-caption">Illustrative sample data. AI never declares the shift ready.</p>
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <section id="product" class="control-layer" aria-labelledby="control-layer-title">
-        <div class="control-layer-head">
-          <div><p class="control-layer-kicker">One operational command layer</p><h2 id="control-layer-title">Pulse Control</h2></div>
-          <p>The manager sees the next useful action, not a long form. Detailed Shift, Team and Coverage controls remain available only when needed.</p>
-        </div>
-        <div class="module-strip" aria-label="Pulse Control workflow">
-          <article class="module-card">
-            <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4Z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
-            <h3>Speak, scan or paste</h3>
-            <p>Add a rota by voice, photo, typed notes or the venue’s saved setup.</p>
-          </article>
-          <article class="module-card">
-            <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/><path d="m8.5 12 2.2 2.2L16 9"/></svg></span>
-            <h3>Deterministic verification</h3>
-            <p>Fixed rules check hours, ownership, breaks, handovers and closing cover.</p>
-          </article>
-          <article class="module-card">
-            <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 9-12h-7l1-8Z"/></svg></span>
-            <h3>Safe automatic fixes</h3>
-            <p>Pulse previews and applies only corrections already proven safe by the rules.</p>
-          </article>
-          <article class="module-card">
-            <span class="module-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6V3Z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></span>
-            <h3>Brief and Relay</h3>
-            <p>Generate manager and team outputs from the exact reviewed version of the shift.</p>
-          </article>
-        </div>
-      </section>
-    </div>
-
-    <section class="section white" aria-labelledby="benefits-title">
-      <div class="page-shell">
-        <div class="section-heading">
-          <h2 id="benefits-title">Less manager input. More operational control.</h2>
-          <p>Pulse removes repetitive setup without hiding the decisions that still belong to the manager.</p>
-        </div>
-        <div class="benefit-grid">
-          <article class="benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></span><h3>Fast start</h3><p>Use the rota format already available instead of rebuilding the shift field by field.</p></article>
-          <article class="benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h4l2-6 4 12 2-6h4"/></svg></span><h3>Honest readiness</h3><p>No artificial AI score. The Readiness Core reports concrete operational issues.</p></article>
-          <article class="benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg></span><h3>Controlled repair</h3><p>No invented staff, no extended hours and no automatic approval of an exception.</p></article>
-          <article class="benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H7l-3 3V5Z"/></svg></span><h3>One source of truth</h3><p>The brief, team messages and handover all come from the same reviewed plan.</p></article>
-        </div>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Hospitality operations</p>
+        <h1 id="hero-title">A new way to run hospitality.</h1>
+        <p class="hero-lead">Turn supported operational information into structured, reviewable guidance — without inventing what isn’t known.</p>
+        <a class="button primary" href="https://yberium.github.io/Yberium-venuebrief-demo/">See Yberium in action</a>
+        <p class="boundary">Interactive demo · fixed synthetic sample · no live staff data</p>
       </div>
+
+      <article id="product" class="hub-proof" aria-labelledby="hub-proof-title">
+        <header class="proof-header">
+          <h2 id="hub-proof-title">Yberium Hub</h2>
+          <p>Product design preview · fixed synthetic sample · not live runtime evidence</p>
+        </header>
+        <ol class="proof-flow">
+          <li class="proof-step supported">
+            <span class="proof-icon" aria-hidden="true">✓</span>
+            <div><h3>Supported input</h3><p>Published rota · 2 sickness reports · 6 availability responses</p></div>
+          </li>
+          <li class="proof-step missing">
+            <span class="proof-icon" aria-hidden="true">!</span>
+            <div><h3>Missing information</h3><p>Agency availability is not confirmed</p></div>
+          </li>
+          <li class="proof-step bounded">
+            <span class="proof-icon" aria-hidden="true">◇</span>
+            <div><h3>Bounded result</h3><p>3 internal cover paths identified<br>Agency path excluded until availability is confirmed</p></div>
+          </li>
+          <li class="proof-step human">
+            <span class="proof-icon" aria-hidden="true">○</span>
+            <div><h3>Human authority</h3><p>Manager review required before any rota change</p></div>
+          </li>
+        </ol>
+        <a class="button action" href="https://yberium.github.io/Yberium-venuebrief-demo/">Review options</a>
+      </article>
     </section>
 
-    <section id="how-it-works" class="section dark" aria-labelledby="how-title">
-      <div class="page-shell">
-        <div class="section-heading left">
-          <h2 id="how-title">The shortest safe path from rota to service.</h2>
-          <p>The four detailed planning screens remain underneath Pulse Control as an advanced editor, not the default journey.</p>
-        </div>
-        <div class="steps">
-          <article class="step"><h3>Add today’s rota</h3><p>Scan it, speak it, paste it or start from the saved venue setup.</p></article>
-          <article class="step"><h3>Review the AI proposal</h3><p>Correct names, hours, assumptions or priorities before anything is applied.</p></article>
-          <article class="step"><h3>Run the Readiness Core</h3><p>Deterministic rules identify blockers, safe fixes and manager checks.</p></article>
-          <article class="step"><h3>Fix what is safe</h3><p>Preview and apply verified changes; decide only the true exceptions.</p></article>
-          <article class="step"><h3>Brief the team</h3><p>Generate Pulse Brief and Pulse Relay from the reviewed shift.</p></article>
-        </div>
-      </div>
+    <section id="approach" class="ecosystem" aria-label="Yberium product ecosystem">
+      <div class="eco-item"><span class="eco-icon" aria-hidden="true">•••</span><div><strong>ChatGPT</strong><span>conversational interaction</span></div></div>
+      <span class="eco-arrow" aria-hidden="true">→</span>
+      <div class="eco-item"><span class="eco-y" aria-hidden="true">Y</span><div><strong>Yberium</strong><span>bounded specialist computation</span></div></div>
+      <span class="eco-arrow" aria-hidden="true">→</span>
+      <div class="eco-item"><span class="eco-icon" aria-hidden="true">▤</span><div><strong>Yberium Hub</strong><span>persistent state / action / evidence</span></div></div>
+      <p class="authority-line">AI reasoning is not business authority.</p>
     </section>
 
-    <section id="outputs" class="section" aria-labelledby="outputs-title">
-      <div class="page-shell">
-        <div class="section-heading">
-          <h2 id="outputs-title">The plan becomes material people can use.</h2>
-          <p>Pulse does not stop at a dashboard. It converts the verified shift into practical manager and team outputs.</p>
-        </div>
-        <div class="output-grid">
-          <article class="output-card">
-            <span class="output-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6V3Z"/><path d="M14 3v4h4M9 12h6M9 16h6M9 8h2"/></svg></span>
-            <h3>Pulse Brief</h3><p>A concise manager view of service, owners, breaks, handovers, closing and watchouts.</p>
-            <div class="output-demo"><div class="output-line"><strong>Status</strong><span>Ready</span></div><div class="output-line"><strong>Safe fixes</strong><span>Applied</span></div><div class="output-line"><strong>Manager checks</strong><span>Confirmed</span></div></div>
-          </article>
-          <article class="output-card">
-            <span class="output-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 11 18-8-8 18-2-8-8-2Z"/><path d="m11 13 4-4"/></svg></span>
-            <h3>Pulse Relay</h3><p>Editable WhatsApp-ready messages for the manager, group, individuals, handover and closing team.</p>
-            <div class="output-demo"><div class="message-preview"><strong>Ravi · Late Host</strong>You take Host at 23:30 and remain part of the closing team.</div><div class="message-preview"><strong>Group briefing</strong>Protect the peak handover and confirm Private Dining before 19:00.</div></div>
-          </article>
-          <article class="output-card">
-            <span class="output-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 12 4 8l4-4 4 4M16 12l4 4-4 4-4-4"/><path d="m9 9 6 6M4 8v8a4 4 0 0 0 4 4h2M20 16V8a4 4 0 0 0-4-4h-2"/></svg></span>
-            <h3>Pulse Handover</h3><p>Preserve what happened, what remains open and what the next manager needs to own.</p>
-            <div class="output-demo"><div class="handover-preview"><strong>Completed</strong>Private Dining owner confirmed.</div><div class="handover-preview"><strong>Carry forward</strong>Supplier credit still awaiting approval.</div></div>
-          </article>
-        </div>
+    <section id="available" class="available-grid" aria-labelledby="available-title">
+      <div class="available-list">
+        <p class="eyebrow">Available now</p>
+        <h2 id="available-title">What you can explore today.</h2>
+        <a class="available-item" href="https://yberium.github.io/Yberium-venuebrief-demo/">
+          <span class="small-icon" aria-hidden="true">▦</span>
+          <span><strong>Fixed-sample interactive demo</strong><small>Explore a guided synthetic scenario.</small></span>
+        </a>
+        <a class="available-item" href="sample-shift-brief.html">
+          <span class="small-icon" aria-hidden="true">◇</span>
+          <span><strong>Illustrative sample brief</strong><small>Review a sample-only operational brief.</small></span>
+        </a>
+        <a class="available-item" href="early-access.html#pilot-form">
+          <span class="small-icon" aria-hidden="true">○</span>
+          <span><strong>Controlled design-partner enquiry</strong><small>Request access to start a conversation.</small></span>
+        </a>
       </div>
+
+      <article class="trust-panel" aria-labelledby="trust-title">
+        <p class="eyebrow">Built on trust</p>
+        <h2 id="trust-title">Principles that keep hospitality operations safe and accountable.</h2>
+        <ul>
+          <li><span aria-hidden="true">✓</span><div><strong>Evidence-backed</strong><p>The preview shows which supplied information supports each displayed result.</p></div></li>
+          <li><span aria-hidden="true">✓</span><div><strong>Bounded and transparent</strong><p>We show what we know, what we don’t, and how we reached the result.</p></div></li>
+          <li><span aria-hidden="true">✓</span><div><strong>Human authority</strong><p>Yberium informs. People decide and act.</p></div></li>
+          <li><span aria-hidden="true">✓</span><div><strong>Privacy by design</strong><p>Privacy and data handling are explicit product requirements.</p></div></li>
+        </ul>
+      </article>
     </section>
 
-    <section id="pricing" class="section white" aria-labelledby="pricing-title">
-      <div class="page-shell">
-        <div class="section-heading"><h2 id="pricing-title">Pilot access before public billing.</h2><p>Yberium Pulse is validating the working product with a small number of hospitality operators. Public subscriptions are not open yet.</p></div>
-        <div class="price-grid">
-          <article class="price-card"><span class="price-label">Explore</span><h3>Interactive demo</h3><div class="price">£0</div><p>Experience AI proposal, deterministic checks, guided repair and outputs with sample data.</p><ul class="price-list"><li>No account required</li><li>No personal data needed</li><li>Print remains locked</li></ul><a class="button" href="https://yberium.github.io/Yberium-venuebrief-demo/">Open demo</a></article>
-          <article class="price-card featured"><span class="price-label">Private pilot</span><h3>Real-shift validation</h3><div class="price">Invitation <small>only</small></div><p>Use the working product on selected real shifts and help test the manager workflow before commercial launch.</p><ul class="price-list"><li>Limited pilot venues</li><li>No card or subscription required</li><li>Structured operational feedback</li></ul><a class="button primary" href="early-access.html#pilot-form">Register interest</a></article>
-          <article class="price-card"><span class="price-label">Commercial launch</span><h3>Public subscriptions</h3><div class="price">Not open <small>yet</small></div><p>The account, credit and checkout foundation exists, but Stripe is intentionally not active while pricing and launch terms are finalised.</p><ul class="price-list"><li>Pricing will be published first</li><li>Cancellation and billing controls required</li><li>No payment accepted today</li></ul><a class="button" href="early-access.html#launch-status">See launch status</a></article>
-        </div>
-        <div class="legal-note"><strong aria-hidden="true">i</strong><p>No subscription or payment is currently offered or collected through this website. Yberium Pulse remains in private product validation. AI interprets and proposes; deterministic rules remain the final readiness authority.</p></div>
-        <section class="final-cta" aria-labelledby="final-title">
-          <div><h2 id="final-title">See the product we are actually building.</h2><p>Start with the rota, watch the rules find the gaps and decide only what still needs a manager.</p></div>
-          <div class="inline-actions"><a class="button primary" href="https://yberium.github.io/Yberium-venuebrief-demo/">Try the demo</a><a class="button dark" href="sample-shift-brief.html">View sample brief</a></div>
-        </section>
-      </div>
+    <section class="mobile-principles" aria-label="Yberium principles summary">
+      <article><span aria-hidden="true">○</span><strong>Available now</strong><p>Fixed-sample interactive demo available now.</p></article>
+      <article><span aria-hidden="true">○</span><strong>Built for trust</strong><p>Fail-closed, transparent, and reviewable.</p></article>
+      <article><span aria-hidden="true">○</span><strong>Designed for hospitality operations</strong><p>Built around clear, reviewable guidance.</p></article>
+    </section>
+
+    <section class="partner-cta" aria-labelledby="partner-title">
+      <div><h2 id="partner-title">Request design-partner access</h2><p>Controlled access to explore Yberium and share feedback.</p></div>
+      <a class="button outline" href="early-access.html#pilot-form">Request design-partner access <span aria-hidden="true">→</span></a>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="page-shell">
-      <div class="footer-inner">
-        <div><a class="brand" href="index.html" aria-label="Yberium Pulse home"><img src="assets/yberium-pulse-mark.svg" alt=""><span>Yberium</span> <strong>Pulse</strong></a><p class="footer-copy">AI-assisted shift readiness and operational control for hospitality teams.</p></div>
-        <nav class="footer-links" aria-label="Product links"><strong>Product</strong><a href="#product">How Pulse works</a><a href="#outputs">Outputs</a><a href="sample-shift-brief.html">Sample brief</a></nav>
-        <nav class="footer-links" aria-label="Contact links"><strong>Contact</strong><a href="mailto:hello@yberium.com">General enquiries</a><a href="mailto:pilot@yberium.com">Pilot access</a><a href="mailto:support@yberium.com">Support</a><a href="mailto:privacy@yberium.com">Privacy</a></nav>
-      </div>
-      <div class="footer-bottom"><span>© 2026 Yberium Pulse.</span><span>Know the shift before it starts.</span></div>
-    </div>
+    <a class="wordmark" href="index.html" aria-label="Yberium home">YBERIUM</a>
+    <nav aria-label="Footer policy links">
+      <a href="mailto:support@yberium.com">Support</a>
+      <a href="mailto:privacy@yberium.com">Privacy</a>
+      <span aria-disabled="true">Terms</span>
+      <span aria-disabled="true">Company</span>
+    </nav>
   </footer>
 </body>
 </html>

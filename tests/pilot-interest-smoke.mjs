@@ -11,19 +11,20 @@ const feedback = fs.readFileSync(new URL('../feedback.html', import.meta.url), '
 assert.doesNotThrow(() => new vm.Script(js));
 assert.match(html, /id="pilotInterestForm"/);
 assert.match(html, /https:\/\/venuebrief-api\.onrender\.com\/pilot-interest/);
-assert.match(html, /name="contactName"/);
-assert.match(html, /name="email"/);
-assert.match(html, /name="venueName"/);
-assert.match(html, /name="operationalProblem"/);
-assert.match(html, /name="consent"/);
+for (const field of ['contactName','email','venueName','venueType','location','teamSize','problemFrequency','operationalProblem','consent']) {
+  assert.match(html, new RegExp(`name="${field}"`));
+}
 assert.match(html, /id="pilotFormSuccess"/);
 assert.match(js, /\/config/);
 assert.match(js, /Register pilot interest/);
 assert.match(js, /pilotFormReference/);
 assert.match(css, /\.pilot-form-panel/);
-assert.match(css, /@media \(max-width: 620px\)/);
-assert.doesNotMatch(`${html}\n${index}\n${feedback}`, /musellafabio@gmail\.com/i);
+assert.match(css, /@media\(max-width:620px\)/);
+assert.doesNotMatch(`${html}\n${index}\n${feedback}`, /Yberium\s+Pulse|Pulse\s+Brief|Pulse\s+Relay|VenueBrief/);
+assert.doesNotMatch(`${html}\n${index}\n${feedback}`, /yberium-pulse-(?:mark|fonts)|yberium-pulse\.css/i);
+assert.match(html, /Yberium may use these details to assess this design-partner request and contact me about Yberium\./);
 assert.match(index, /early-access\.html#pilot-form/);
 assert.match(feedback, /early-access\.html#pilot-form/);
+assert.doesNotMatch(`${html}\n${index}\n${feedback}`, /musellafabio@gmail\.com/i);
 
-console.log('Pilot interest public journey checks passed.');
+console.log('Yberium design-partner journey checks passed.');

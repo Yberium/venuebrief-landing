@@ -8,7 +8,8 @@ const fonts = fs.readFileSync(new URL('../assets/yberium-fonts.css', import.meta
 const manifest = fs.readFileSync(new URL('../site.webmanifest', import.meta.url), 'utf8');
 const earlyAccess = fs.readFileSync(new URL('../early-access.html', import.meta.url), 'utf8');
 const feedback = fs.readFileSync(new URL('../feedback.html', import.meta.url), 'utf8');
-const active = `${index}\n${sample}\n${manifest}\n${earlyAccess}\n${feedback}`;
+const cinematic = fs.readFileSync(new URL('../cinematic.html', import.meta.url), 'utf8');
+const active = `${index}\n${sample}\n${manifest}\n${earlyAccess}\n${feedback}\n${cinematic}`;
 
 assert.match(index, />A new way to run hospitality\.<\/h1>/);
 assert.match(index, />See Yberium in action<\/a>/);
@@ -40,6 +41,9 @@ assert.doesNotMatch(active, /automatic fix|autofix|automatically applies|AI decl
 assert.doesNotMatch(active, /Harbour House|Leo|Amira|Sofia|Ravi|Noah/i);
 assert.doesNotMatch(active, /early-access\.html#pilot-form/);
 assert.doesNotMatch(earlyAccess, /id="pilotInterestForm"|venuebrief-api\.onrender\.com\/pilot-interest|assets\/pilot-interest\.js/);
+assert.doesNotMatch(cinematic, /VenueBrief|yberium-pulse-(?:mark|fonts)|yberium-pulse\.css/i);
+assert.match(cinematic, /noindex,follow/);
+assert.match(cinematic, /Continue to Yberium/);
 
 assert.equal((index.match(/class="button primary"/g) || []).length, 1, 'index must expose one primary CTA');
 assert.match(sample, /Illustrative sample · fixed synthetic data · no live staff data/);
@@ -60,10 +64,10 @@ assert.match(fonts, /font-weight:100 900/);
 assert.equal(JSON.parse(manifest).name, 'Yberium');
 assert.doesNotMatch(manifest, /yberium-pulse|VenueBrief/i);
 
-for (const reachable of [earlyAccess, feedback]) {
+for (const reachable of [earlyAccess, feedback, cinematic]) {
   assert.doesNotMatch(reachable, /Yberium\s+Pulse|Pulse\s+Brief|Pulse\s+Relay|VenueBrief/);
   assert.doesNotMatch(reachable, /yberium-pulse-(?:mark|fonts)|yberium-pulse\.css/i);
-  assert.match(reachable, /YBERIUM/);
+  assert.match(reachable, /YBERIUM|Yberium/);
 }
 
 console.log('PX-3 Landing V2 recovery contract checks passed.');

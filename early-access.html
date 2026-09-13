@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yberium — Design-partner access</title>
-  <meta name="description" content="Request controlled design-partner access to explore Yberium with general hospitality operating context only.">
+  <meta name="description" content="Design-partner enquiries for Yberium are not currently accepting submissions.">
   <meta name="theme-color" content="#F7F5F0">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://yberium.com/early-access.html">
@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="assets/yberium-fonts.css">
   <link rel="stylesheet" href="assets/yberium.css">
   <link rel="stylesheet" href="assets/pilot-interest.css" data-yberium-pilot-styles>
-  <script src="assets/pilot-interest.js?v=1.0" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -43,61 +42,39 @@
 
   <main id="main" class="subpage">
     <section class="subpage-head" aria-labelledby="access-title">
-      <p class="eyebrow">Controlled design-partner enquiry</p>
-      <h1 id="access-title">Explore Yberium with us.</h1>
-      <p class="hero-lead">Share general operating context so we can assess whether a bounded design-partner conversation makes sense. Do not submit rota files, employee names, personal staff records or confidential figures.</p>
-      <p class="boundary">No payment · no subscription · reviewed before any access is offered</p>
+      <p class="eyebrow">Controlled design-partner access</p>
+      <h1 id="access-title">Design-partner enquiries are not open yet.</h1>
+      <p class="hero-lead">Yberium is keeping the current public experience limited to fixed synthetic examples while the controlled access process is finalised.</p>
+      <p class="boundary">No account · no payment · no enquiry data collected on this page</p>
     </section>
 
-    <section id="pilot-form" class="pilot-form-panel" aria-labelledby="pilot-form-title">
+    <section id="access-status" class="pilot-form-panel" aria-labelledby="access-status-title">
       <div class="pilot-form-intro">
-        <p class="eyebrow">Design-partner request</p>
-        <h2 id="pilot-form-title">Tell Yberium about the operation, not the staff.</h2>
-        <p>General hospitality operating context is enough for this enquiry.</p>
+        <p class="eyebrow">Access status</p>
+        <h2 id="access-status-title">Explore the product without submitting information.</h2>
+        <p>The public demo and sample brief use fixed synthetic content. They do not require you to provide live staff or venue data.</p>
         <ul class="pilot-assurance-list">
+          <li>No registration form</li>
           <li>No card details</li>
           <li>No live staff data requested</li>
-          <li>Human review before any invitation</li>
         </ul>
       </div>
 
       <div class="pilot-form-shell">
-        <form id="pilotInterestForm" class="pilot-form" data-endpoint="https://venuebrief-api.onrender.com/pilot-interest" novalidate>
-          <div class="pilot-field-grid">
-            <label class="pilot-field"><span>Your name</span><input name="contactName" autocomplete="name" maxlength="120" required></label>
-            <label class="pilot-field"><span>Work email</span><input name="email" type="email" autocomplete="email" maxlength="254" required></label>
-            <label class="pilot-field"><span>Venue or operator</span><input name="venueName" autocomplete="organization" maxlength="160" required></label>
-            <label class="pilot-field"><span>Venue type</span><select name="venueType" required><option value="">Choose one</option><option value="restaurant">Restaurant</option><option value="bar">Bar or wine bar</option><option value="hotel">Hotel</option><option value="pub">Pub or gastropub</option><option value="cafe">Café</option><option value="event-venue">Event venue</option><option value="other">Other hospitality</option></select></label>
-            <label class="pilot-field"><span>Location</span><input name="location" autocomplete="address-level2" maxlength="160" placeholder="City, region or country" required></label>
-            <label class="pilot-field"><span>Typical shift team size</span><input name="teamSize" type="number" inputmode="numeric" min="1" max="500" required></label>
-            <label class="pilot-field"><span>How often does the problem occur?</span><select name="problemFrequency" required><option value="">Choose one</option><option value="daily">Daily</option><option value="weekly">Weekly</option><option value="monthly">Monthly</option><option value="occasionally">Occasionally</option></select></label>
-            <label class="pilot-field pilot-field-wide"><span>Biggest operational problem</span><textarea name="operationalProblem" minlength="20" maxlength="1500" rows="6" placeholder="Example: handovers are often decided during service, so ownership is unclear." required></textarea></label>
-          </div>
-
-          <label class="pilot-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
-          <label class="pilot-consent"><input name="consent" type="checkbox" required><span>Yberium may use these details to assess this design-partner request and contact me about Yberium.</span></label>
-
-          <div class="pilot-form-actions">
-            <button id="pilotFormSubmit" class="button primary" type="submit" disabled>Request design-partner access</button>
-            <p id="pilotFormStatus" class="pilot-form-status" role="status" aria-live="polite">Checking registration availability…</p>
-          </div>
-        </form>
-
-        <section id="pilotFormSuccess" class="pilot-form-success" tabindex="-1" hidden aria-labelledby="pilot-success-title">
-          <span class="sample-boundary">Request received</span>
-          <h3 id="pilot-success-title">Your design-partner enquiry is registered.</h3>
-          <p>Yberium will review the operating context before deciding whether the request fits the current controlled access phase.</p>
-          <div class="pilot-reference"><span>Reference</span><strong id="pilotFormReference"></strong></div>
-          <a class="button secondary-button" href="https://yberium.github.io/Yberium-venuebrief-demo/">Return to the demo</a>
+        <section class="pilot-form-success" aria-labelledby="access-next-title">
+          <span class="sample-boundary">Enquiries paused</span>
+          <h3 id="access-next-title">Use the fixed-sample experience for now.</h3>
+          <p>Design-partner submissions will open only after the access and data-handling process is ready for public use.</p>
+          <a class="button secondary-button" href="https://yberium.github.io/Yberium-venuebrief-demo/">Open the interactive demo</a>
         </section>
       </div>
     </section>
 
     <section class="brief-shell access-boundary" aria-labelledby="boundary-title">
-      <h2 id="boundary-title">What this request does — and does not — mean</h2>
+      <h2 id="boundary-title">Current public boundary</h2>
       <div class="brief-grid">
-        <div class="brief-block"><h3>Controlled enquiry</h3><p>Submitting the form starts a conversation. It does not create an account, subscription or product entitlement.</p></div>
-        <div class="brief-block"><h3>General context only</h3><p>Do not provide personal staff information, live rota files or confidential operational records.</p></div>
+        <div class="brief-block"><h3>Fixed synthetic examples</h3><p>The current demo and sample brief are designed to be explored without supplying operational or personal information.</p></div>
+        <div class="brief-block"><h3>No design-partner submission</h3><p>This page does not send a request to Yberium or create an account, subscription or product entitlement.</p></div>
       </div>
     </section>
   </main>

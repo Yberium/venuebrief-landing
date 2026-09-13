@@ -50,5 +50,14 @@ assert.match(css, /prefers-reduced-motion/);
 assert.match(fonts, /font-family:"Inter Variable"/);
 assert.match(fonts, /font-weight:100 900/);
 assert.equal(JSON.parse(manifest).name, 'Yberium');
+assert.doesNotMatch(manifest, /yberium-pulse|VenueBrief/i);
 
 console.log('PX-3 Landing V2 recovery contract checks passed.');
+
+const earlyAccess = fs.readFileSync(new URL('../early-access.html', import.meta.url), 'utf8');
+const feedback = fs.readFileSync(new URL('../feedback.html', import.meta.url), 'utf8');
+for (const reachable of [earlyAccess, feedback]) {
+  assert.doesNotMatch(reachable, /Yberium\s+Pulse|Pulse\s+Brief|Pulse\s+Relay|VenueBrief/);
+  assert.doesNotMatch(reachable, /yberium-pulse-(?:mark|fonts)|yberium-pulse\.css/i);
+  assert.match(reachable, /YBERIUM/);
+}

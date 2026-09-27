@@ -1,0 +1,21 @@
+name: AIC5 OAuth Consent Package Verify
+
+on:
+  push:
+    branches:
+      - release/aic5-production-mutation-package-20260927
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node tests/public-readiness-smoke.mjs

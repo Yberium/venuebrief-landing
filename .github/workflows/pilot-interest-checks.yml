@@ -13,6 +13,8 @@ on:
       - 'privacy/**'
       - 'terms/**'
       - 'support/**'
+      - 'oauth/**'
+      - 'oauth/**'
       - 'site.webmanifest'
       - 'sitemap.xml'
       - '.github/workflows/pilot-interest-checks.yml'

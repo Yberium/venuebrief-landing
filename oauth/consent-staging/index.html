@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Authorize access — Yberium</title>
+  <meta name="description" content="Authorize an external application to access your Yberium account through Supabase OAuth.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#171A1F">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; connect-src https://tpmgjiklbonmtufryuwq.supabase.co; img-src 'self' data:; style-src 'self' 'unsafe-inline'; base-uri 'none'; object-src 'none'">
+  <link rel="icon" href="../../assets/yberium-pulse-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/yberium-pulse-fonts.css?v=1.0">
+  <link rel="stylesheet" href="../../assets/yberium-pulse.css?v=1.2">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Yberium home"><img src="../../assets/yberium-pulse-mark.svg" alt=""><span>Yberium</span></a>
+      <div class="header-actions"><a class="button quiet" href="/support/">Support</a></div>
+    </div>
+  </header>
+  <main id="main" class="subpage-main">
+    <div class="page-shell">
+      <section class="subpage-hero">
+        <p class="eyebrow">Secure authorization</p>
+        <h1>Review access before you approve it.</h1>
+        <p id="oauthStatus" role="status" aria-live="polite">Loading authorization request…</p>
+      </section>
+
+      <section id="missingPanel" class="pilot-form-panel" hidden>
+        <div class="pilot-form-intro">
+          <h2>No authorization request</h2>
+          <p>This page must be opened from a valid OAuth authorization flow.</p>
+          <a class="button" href="/">Return to Yberium</a>
+        </div>
+      </section>
+
+      <section id="loginPanel" class="pilot-form-panel" hidden>
+        <div class="pilot-form-intro">
+          <p class="eyebrow">Sign in</p>
+          <h2>Sign in to your Yberium account.</h2>
+          <p>Use email and password for an existing account, or request a secure magic link. No account is created from this page.</p>
+        </div>
+        <div class="pilot-form-shell">
+          <form id="loginForm" class="pilot-form">
+            <label class="pilot-field"><span>Work email</span><input id="loginEmail" type="email" autocomplete="email" maxlength="254" required></label>
+            <label class="pilot-field"><span>Password</span><input id="loginPassword" type="password" autocomplete="current-password" maxlength="1024"></label>
+            <div class="pilot-form-actions">
+              <button id="passwordLoginButton" class="button primary" type="submit">Sign in with password</button>
+              <button id="magicLinkButton" class="button" type="button">Send secure magic link</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section id="consentPanel" class="pilot-form-panel" hidden>
+        <div class="pilot-form-intro">
+          <p class="eyebrow">Application request</p>
+          <h2 id="clientName">External application</h2>
+          <p>This application is asking to connect to your Yberium account.</p>
+        </div>
+        <div class="pilot-form-shell">
+          <div class="feedback-grid">
+            <article class="question-card"><h3>Client</h3><p id="clientValue"></p></article>
+            <article class="question-card"><h3>Redirect destination</h3><p id="redirectValue"></p></article>
+            <article class="question-card"><h3>Requested permissions</h3><ul id="scopeList" class="price-list"></ul></article>
+            <article class="question-card"><h3>Account</h3><p id="accountValue"></p><button id="signOutButton" class="button quiet" type="button">Use another account</button></article>
+          </div>
+          <div class="pilot-form-actions">
+            <button id="approveButton" class="button primary" type="button">Approve access</button>
+            <button id="denyButton" class="button" type="button">Deny</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="legal-note">
+        <strong aria-hidden="true">i</strong>
+        <p>Only approve clients you recognise. Enter a password only in the sign-in field above; never paste access tokens, recovery codes or staff records into this page. See the <a href="/privacy/">Privacy Policy</a>.</p>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="/assets/oauth-consent-staging.js"></script>
+</body>
+</html>

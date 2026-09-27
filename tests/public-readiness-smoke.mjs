@@ -10,6 +10,7 @@ const liveFiles = [
   'privacy/index.html',
   'terms/index.html',
   'support/index.html',
+  'oauth/consent/index.html',
 ];
 
 for (const file of liveFiles) {
@@ -35,5 +36,16 @@ const sitemap = fs.readFileSync('sitemap.xml', 'utf8');
 for (const url of ['https://yberium.com/privacy/','https://yberium.com/terms/','https://yberium.com/support/']) {
   assert.ok(sitemap.includes(url), `sitemap must include ${url}`);
 }
+
+const consent = fs.readFileSync('oauth/consent/index.html', 'utf8');
+for (const required of [
+  'getAuthorizationDetails',
+  'approveAuthorization',
+  'denyAuthorization',
+  'authorization_id',
+  'shouldCreateUser: false',
+  'sb_publishable_',
+]) assert.ok(consent.includes(required), `consent page must include ${required}`);
+assert.match(consent, /meta name="robots" content="noindex,nofollow"/);
 
 console.log('public readiness smoke: PASS');

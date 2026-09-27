@@ -1,7 +1,7 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.1/+esm';
 
-    const PROJECT_URL = 'https://tpmgjiklbonmtufryuwq.supabase.co';
-    const PUBLISHABLE_KEY = 'sb_publishable_az7fEDAQH1qXaSyKYG8CKw_QUiZB5pm';
+    const PROJECT_URL = 'https://bfdhjojqstopqvhdnpxy.supabase.co';
+    const PUBLISHABLE_KEY = 'sb_publishable_fclEADa_lubow3KJnLrXLA_ScUaq_EK';
     const supabase = createClient(PROJECT_URL, PUBLISHABLE_KEY, {
       auth: { persistSession: true, detectSessionInUrl: true, flowType: 'pkce' },
     });

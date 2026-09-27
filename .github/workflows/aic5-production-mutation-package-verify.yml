@@ -15,7 +15,14 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: node tests/public-readiness-smoke.mjs
+      - name: Verify final production/staging consent isolation
+        run: node tests/public-readiness-smoke.mjs
+      - name: Verify phase-one staging preservation checkpoint
+        run: |
+          git checkout fc1af68b726ffb78a7028e0a1335240b118d2949
+          node tests/public-readiness-smoke.mjs

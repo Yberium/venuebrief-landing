@@ -9,6 +9,12 @@ on:
       - 'assets/pilot-interest.js'
       - 'assets/pilot-interest.css'
       - 'tests/pilot-interest-smoke.mjs'
+      - 'tests/public-readiness-smoke.mjs'
+      - 'privacy/**'
+      - 'terms/**'
+      - 'support/**'
+      - 'site.webmanifest'
+      - 'sitemap.xml'
       - '.github/workflows/pilot-interest-checks.yml'
   push:
     branches: [main]
@@ -19,6 +25,12 @@ on:
       - 'assets/pilot-interest.js'
       - 'assets/pilot-interest.css'
       - 'tests/pilot-interest-smoke.mjs'
+      - 'tests/public-readiness-smoke.mjs'
+      - 'privacy/**'
+      - 'terms/**'
+      - 'support/**'
+      - 'site.webmanifest'
+      - 'sitemap.xml'
       - '.github/workflows/pilot-interest-checks.yml'
 
 permissions:
@@ -33,3 +45,4 @@ jobs:
         with:
           node-version: 20
       - run: node tests/pilot-interest-smoke.mjs
+      - run: node tests/public-readiness-smoke.mjs

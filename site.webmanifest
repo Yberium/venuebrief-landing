@@ -1,6 +1,6 @@
 {
-  "name": "Yberium Pulse",
-  "short_name": "Pulse",
+  "name": "Yberium",
+  "short_name": "Yberium",
   "description": "Shift readiness and operational control for hospitality teams.",
   "start_url": "/",
   "display": "standalone",

@@ -1,11 +1,11 @@
-# Yberium Pulse landing
+# Yberium landing
 
-Public landing and supporting pages for **Yberium Pulse** — shift readiness and operational control for hospitality teams.
+Public landing and supporting pages for **Yberium** — shift readiness and operational control for hospitality teams.
 
 ## Approved direction
 
 - Brand: Yberium
-- Product: Yberium Pulse
+- Product identity: Yberium
 - Tagline: **Know the shift before it starts.**
 - Primary domain: `yberium.com`
 - Visual system: Graphite, Signal Lime, Operational Green, Amber, Critical Red and Off White
@@ -18,10 +18,13 @@ Public landing and supporting pages for **Yberium Pulse** — shift readiness an
 - `/early-access.html` — founder-managed validation offer
 - `/feedback.html` — operator feedback questions
 - `/cinematic.html` — retired legacy concept notice
+- `/privacy/` — privacy policy
+- `/terms/` — website and pilot terms
+- `/support/` — support and contact guidance
 
 ## Rebrand status
 
-This branch replaces the former public identity while preserving legacy repository history. The existing public demo URL remains temporarily available until the demo and application complete their own rebrand phases.
+The live public identity is Yberium. Historical rebrand documents are preserved as evidence of earlier product naming and must not be treated as current public copy. The existing public demo URL remains temporarily available until the demo and application complete their own rebrand phases.
 
 See `REBRAND_REFERENCE_MAP.md` for the cross-repository migration boundary and `YBERIUM_PULSE_REBRAND.md` for the locked landing scope.
 

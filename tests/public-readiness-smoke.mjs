@@ -38,6 +38,21 @@ for (const url of ['https://yberium.com/privacy/','https://yberium.com/terms/','
 }
 
 const consent = fs.readFileSync('oauth/consent/index.html', 'utf8');
+const consentScriptPath = 'assets/oauth-consent.js';
+assert.equal(fs.existsSync(consentScriptPath), true, 'OAuth consent module must exist');
+const consentScript = fs.readFileSync(consentScriptPath, 'utf8');
+const consentSurface = `${consent}\n${consentScript}`;
+
+assert.ok(
+  consent.includes('<script type="module" src="/assets/oauth-consent.js"></script>'),
+  'consent page must load its module from a CSP-allowed self origin',
+);
+assert.doesNotMatch(
+  consent,
+  /<script\s+type="module"(?![^>]*\bsrc=)[^>]*>/,
+  'consent page must not use an inline module blocked by its CSP',
+);
+
 for (const required of [
   'getAuthorizationDetails',
   'approveAuthorization',
@@ -47,8 +62,8 @@ for (const required of [
   'signInWithPassword',
   'current-password',
   'sb_publishable_',
-]) assert.ok(consent.includes(required), `consent page must include ${required}`);
+]) assert.ok(consentSurface.includes(required), `consent surface must include ${required}`);
 assert.match(consent, /meta name="robots" content="noindex,nofollow"/);
-assert.doesNotMatch(consent, /signUp\s*\(/, 'consent page must not create OAuth reviewer accounts');
+assert.doesNotMatch(consentScript, /signUp\s*\(/, 'consent page must not create OAuth reviewer accounts');
 
 console.log('public readiness smoke: PASS');

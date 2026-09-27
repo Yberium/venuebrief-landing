@@ -11,6 +11,7 @@ const liveFiles = [
   'terms/index.html',
   'support/index.html',
   'oauth/consent/index.html',
+  'oauth/consent-staging/index.html',
 ];
 
 for (const file of liveFiles) {
@@ -67,3 +68,16 @@ assert.match(consent, /meta name="robots" content="noindex,nofollow"/);
 assert.doesNotMatch(consentScript, /signUp\s*\(/, 'consent page must not create OAuth reviewer accounts');
 
 console.log('public readiness smoke: PASS');
+
+
+const stagingConsent = fs.readFileSync('oauth/consent-staging/index.html', 'utf8');
+const stagingConsentScriptPath = 'assets/oauth-consent-staging.js';
+assert.equal(fs.existsSync(stagingConsentScriptPath), true, 'staging OAuth consent module must exist');
+const stagingConsentScript = fs.readFileSync(stagingConsentScriptPath, 'utf8');
+assert.ok(stagingConsent.includes('<script type="module" src="/assets/oauth-consent-staging.js"></script>'));
+assert.ok(stagingConsent.includes('https://tpmgjiklbonmtufryuwq.supabase.co'));
+assert.ok(stagingConsentScript.includes("https://tpmgjiklbonmtufryuwq.supabase.co"));
+assert.ok(consent.includes('https://tpmgjiklbonmtufryuwq.supabase.co'), 'primary consent remains staging-bound until phase two');
+assert.ok(consentScript.includes("https://tpmgjiklbonmtufryuwq.supabase.co"), 'primary consent module remains staging-bound until phase two');
+assert.match(stagingConsent, /meta name="robots" content="noindex,nofollow"/);
+assert.doesNotMatch(stagingConsentScript, /signUp\s*\(/);

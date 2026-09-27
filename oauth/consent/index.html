@@ -39,13 +39,17 @@
       <section id="loginPanel" class="pilot-form-panel" hidden>
         <div class="pilot-form-intro">
           <p class="eyebrow">Sign in</p>
-          <h2>Use your Yberium account email.</h2>
-          <p>We will send a secure magic link. The authorization request is preserved when you return.</p>
+          <h2>Sign in to your Yberium account.</h2>
+          <p>Use email and password for an existing account, or request a secure magic link. No account is created from this page.</p>
         </div>
         <div class="pilot-form-shell">
           <form id="loginForm" class="pilot-form">
             <label class="pilot-field"><span>Work email</span><input id="loginEmail" type="email" autocomplete="email" maxlength="254" required></label>
-            <div class="pilot-form-actions"><button id="loginButton" class="button primary" type="submit">Send secure link</button></div>
+            <label class="pilot-field"><span>Password</span><input id="loginPassword" type="password" autocomplete="current-password" maxlength="1024"></label>
+            <div class="pilot-form-actions">
+              <button id="passwordLoginButton" class="button primary" type="submit">Sign in with password</button>
+              <button id="magicLinkButton" class="button" type="button">Send secure magic link</button>
+            </div>
           </form>
         </div>
       </section>
@@ -72,7 +76,7 @@
 
       <div class="legal-note">
         <strong aria-hidden="true">i</strong>
-        <p>Only approve clients you recognise. Yberium never asks you to paste passwords, access tokens or staff records on this page. See the <a href="/privacy/">Privacy Policy</a>.</p>
+        <p>Only approve clients you recognise. Enter a password only in the sign-in field above; never paste access tokens, recovery codes or staff records into this page. See the <a href="/privacy/">Privacy Policy</a>.</p>
       </div>
     </div>
   </main>
@@ -94,7 +98,9 @@
     const consentPanel = document.getElementById('consentPanel');
     const loginForm = document.getElementById('loginForm');
     const loginEmail = document.getElementById('loginEmail');
-    const loginButton = document.getElementById('loginButton');
+    const loginPassword = document.getElementById('loginPassword');
+    const passwordLoginButton = document.getElementById('passwordLoginButton');
+    const magicLinkButton = document.getElementById('magicLinkButton');
     const approveButton = document.getElementById('approveButton');
     const denyButton = document.getElementById('denyButton');
     const signOutButton = document.getElementById('signOutButton');
@@ -156,8 +162,34 @@
     loginForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       const email = loginEmail.value.trim();
-      if (!email) return;
-      loginButton.disabled = true;
+      const password = loginPassword.value;
+      if (!email || !password) {
+        message('Enter the email and password for an existing Yberium account, or use the magic-link option.');
+        return;
+      }
+      passwordLoginButton.disabled = true;
+      magicLinkButton.disabled = true;
+      message('Signing in…');
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      passwordLoginButton.disabled = false;
+      magicLinkButton.disabled = false;
+      if (error) {
+        message(error.message);
+        return;
+      }
+      loginPassword.value = '';
+      await loadAuthorization();
+    });
+
+    magicLinkButton.addEventListener('click', async () => {
+      const email = loginEmail.value.trim();
+      if (!email) {
+        message('Enter your work email before requesting a secure magic link.');
+        loginEmail.focus();
+        return;
+      }
+      passwordLoginButton.disabled = true;
+      magicLinkButton.disabled = true;
       message('Sending a secure sign-in link…');
       const redirectTo = new URL(window.location.href);
       redirectTo.searchParams.set('authorization_id', authorizationId);
@@ -165,7 +197,8 @@
         email,
         options: { emailRedirectTo: redirectTo.toString(), shouldCreateUser: false },
       });
-      loginButton.disabled = false;
+      passwordLoginButton.disabled = false;
+      magicLinkButton.disabled = false;
       message(error ? error.message : 'Check your email and open the secure link to continue.');
     });
 

@@ -44,8 +44,11 @@ for (const required of [
   'denyAuthorization',
   'authorization_id',
   'shouldCreateUser: false',
+  'signInWithPassword',
+  'current-password',
   'sb_publishable_',
 ]) assert.ok(consent.includes(required), `consent page must include ${required}`);
 assert.match(consent, /meta name="robots" content="noindex,nofollow"/);
+assert.doesNotMatch(consent, /signUp\s*\(/, 'consent page must not create OAuth reviewer accounts');
 
 console.log('public readiness smoke: PASS');

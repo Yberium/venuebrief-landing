@@ -8,6 +8,13 @@ on:
       - 'feedback.html'
       - 'assets/pilot-interest.js'
       - 'assets/pilot-interest.css'
+      - 'assets/yberium-public.css'
+      - 'assets/public-waves.js'
+      - 'product/**'
+      - 'how-it-works/**'
+      - 'use-cases/**'
+      - 'trust-and-safety/**'
+      - 'tests/homepage-v2-smoke.mjs'
       - 'tests/pilot-interest-smoke.mjs'
       - 'tests/public-readiness-smoke.mjs'
       - 'privacy/**'
@@ -25,6 +32,13 @@ on:
       - 'feedback.html'
       - 'assets/pilot-interest.js'
       - 'assets/pilot-interest.css'
+      - 'assets/yberium-public.css'
+      - 'assets/public-waves.js'
+      - 'product/**'
+      - 'how-it-works/**'
+      - 'use-cases/**'
+      - 'trust-and-safety/**'
+      - 'tests/homepage-v2-smoke.mjs'
       - 'tests/pilot-interest-smoke.mjs'
       - 'tests/public-readiness-smoke.mjs'
       - 'privacy/**'
@@ -48,3 +62,4 @@ jobs:
           node-version: 20
       - run: node tests/pilot-interest-smoke.mjs
       - run: node tests/public-readiness-smoke.mjs
+      - run: node tests/homepage-v2-smoke.mjs

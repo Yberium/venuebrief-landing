@@ -41,28 +41,19 @@ for (const file of liveFiles) {
 
 const home = fs.readFileSync('index.html', 'utf8');
 for (const label of [
-  'HOSPITALITY OPERATIONS',
+  'YBERIUM',
   'A new way to run hospitality.',
-  'Turn supported operational information into structured, reviewable guidance — without inventing what isn’t known.',
-  'Yberium Hub',
-  'Supported input',
-  'Missing information',
-  'Bounded result',
-  'Human authority',
-  'AI reasoning is not business authority.',
-  'Available now',
-  'Built on trust',
+  'See Yberium in action',
+  'How it works',
 ]) assert.ok(home.includes(label), `home must expose canonical content: ${label}`);
 
-assert.match(home, /<title>Yberium — Hospitality operations intelligence and workforce control<\/title>/);
+assert.match(home, /<title>Yberium — A new way to run hospitality<\/title>/);
 assert.match(home, /<link rel="canonical" href="https:\/\/yberium\.com\/">/);
 assert.match(home, /application\/ld\+json/);
 assert.match(home, /"@type":"WebSite"/);
 assert.doesNotMatch(home, /"@type":"Organization"/);
-assert.match(home, /Yberium is open to controlled design-partner enquiries before wider availability\./);
-assert.doesNotMatch(home, /working with a limited number of design partners/i);
 assert.doesNotMatch(home, /Yberium Control|Readiness Core|signal-lime|KPI/i);
-for (const route of ['/privacy/', '/terms/', '/support/']) {
+for (const route of ['/product/', '/how-it-works/', '/use-cases/', '/trust-and-safety/', '/support/']) {
   assert.ok(home.includes(route), `home must link ${route}`);
 }
 

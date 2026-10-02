@@ -6,7 +6,10 @@ const navigation = ['/product/', '/how-it-works/', '/use-cases/', '/trust-and-sa
 for (const file of routes) {
   const html = fs.readFileSync(file, 'utf8');
   assert.match(html, /class="wave-field/, `${file} must use the global wave family`);
+  assert.doesNotMatch(html, /class="wave wave--/, `${file} must not retain concentric band markup`);
   assert.match(html, /public-waves\.js/, `${file} must load restrained pointer interaction`);
+  assert.doesNotMatch(html, />YBERIUM</, `${file} must use the visible Yberium wordmark treatment`);
+  assert.match(html, /class="wordmark"[^>]*>Yberium<\/a>/, `${file} must show the Yberium wordmark`);
   assert.match(html, /<a class="nav-action" href="\/early-access\.html#pilot-form"/, `${file} must expose Controlled access as the right-side action`);
   assert.match(html, /<details class="mobile-nav"><summary>Menu<\/summary><nav aria-label="Mobile navigation">/, `${file} must expose semantic mobile navigation`);
   assert.match(html, /class="mobile-nav-action" href="\/early-access\.html#pilot-form"/, `${file} mobile navigation must expose Controlled access`);
@@ -19,20 +22,40 @@ assert.match(home, /<p class="hero-brand" aria-hidden="true">Yberium<\/p>/);
 assert.match(home, /A new way to run hospitality\./);
 assert.match(home, /See Yberium in action[\s\S]*href="\/product\/"|href="\/product\/"[\s\S]*See Yberium in action/);
 assert.match(home, /href="\/how-it-works\/">How it works/);
+for (const label of ['ChatGPT', 'Ask naturally', 'Yberium', 'Analyse &amp; verify', 'You', 'Review &amp; decide', 'AI reasoning is not business authority.']) {
+  assert.ok(home.includes(label), `home interaction rail must include ${label}`);
+}
+assert.match(home, /class="interaction-rail" aria-label="How people work with Yberium"/, 'interaction rail must expose an accessible label');
+assert.ok(home.indexOf('class="hero-actions"') < home.indexOf('class="interaction-rail"'), 'interaction rail must follow the CTA row');
 assert.doesNotMatch(home, /<footer|hub-panel|card-grid|href="#(?!main)/);
 const css = fs.readFileSync('assets/yberium-public.css', 'utf8');
 assert.match(css, /prefers-reduced-motion:reduce/);
 assert.match(css, /overflow-x:hidden/);
 assert.match(css, /pointer-events:none/);
-assert.match(css, /wave--front\{[^}]*animation:wave-front 8\.5s/s, 'front wave must have visibly paced continuous motion');
-assert.match(css, /@keyframes wave-front\{0%,100%[\s\S]*50%/, 'front wave motion must have a full oscillation cycle');
+assert.match(css, /wave-path--front\{[^}]*animation:path-front 10s/s, 'front path must have visibly paced continuous motion');
+assert.match(css, /radial-gradient/, 'wave field must include atmospheric light and haze');
+assert.match(css, /@keyframes atmosphere-breathe/, 'atmospheric haze must move continuously');
+assert.match(css, /\.wave-scene\{[^}]*opacity:\.9[^}]*translateY\(5%\)/s, 'desktop composition must keep the tuned lower, translucent crop');
+assert.match(css, /\.interaction-rail ol\{[^}]*grid-template-columns:repeat\(3,1fr\)/, 'interaction rail must remain compact and horizontal');
+assert.match(css, /\.content-grid span\{[^}]*clamp\(32px,3vw,40px/, 'inner-page card numerals must use the approved desktop range');
+assert.match(css, /@media\(max-width:600px\)[\s\S]*\.content-grid span\{font-size:28px\}/, 'inner-page card numerals must reduce sensibly on mobile');
+assert.match(css, /\.content-grid h2\{[^}]*650 23px/, 'inner-page card headings must be larger and stronger');
+assert.match(css, /\.content-grid p\{[^}]*font-size:16px/, 'inner-page card body copy must be more readable');
+assert.match(css, /\.hero-brand\{[^}]*letter-spacing:\.012em/, 'hero wordmark must use compact natural tracking');
+assert.match(css, /@media\(max-width:600px\)\{\.wave-scene\{transform:translateY\(9%\) scale\(1\.08\)/, 'mobile may adapt the shared scene only through crop and scale');
+assert.doesNotMatch(css, /@media\(max-width:600px\)[^}]*wave-scene\{[^}]*opacity:/s, 'mobile must retain desktop wave depth rather than use a reduced placeholder');
+assert.match(css, /@keyframes path-front\{0%,100%[\s\S]*50%/, 'front wave path motion must have a full oscillation cycle');
+assert.doesNotMatch(css, /\.wave\{|wave--back|wave--middle|wave--front/, 'retired ellipse-band geometry must not remain');
 assert.doesNotMatch(css, /--wave-shift-[xy]/, 'wave motion must not depend on the retired coupled shift variables');
 const waveJs = fs.readFileSync('assets/public-waves.js', 'utf8');
 assert.match(waveJs, /function setOffsets\(/, 'pointer parallax must be applied separately from continuous CSS motion');
+assert.match(waveJs, /<svg class="wave-scene"/, 'shared script must mount one reusable SVG scene');
+assert.match(waveJs, /C120 470 312 508/, 'scene must use authored cubic wave paths');
+assert.match(waveJs, /wave-path--ribbon/, 'scene must include a translucent crossing ribbon');
 for (const file of routes) {
   const html = fs.readFileSync(file, 'utf8');
-  assert.match(html, /yberium-public\.css\?v=3\.0/, `${file} must load the cache-busted wave CSS`);
-  assert.match(html, /public-waves\.js\?v=2\.0/, `${file} must load the cache-busted wave JS`);
+  assert.match(html, /yberium-public\.css\?v=5\.4/, `${file} must load the cache-busted wave CSS`);
+  assert.match(html, /public-waves\.js\?v=3\.0/, `${file} must load the cache-busted wave JS`);
 }
 assert.match(css, /@media\(max-width:900px\).*\.mobile-nav\{display:block\}/s);
 const controlledAccess = fs.readFileSync('early-access.html', 'utf8');

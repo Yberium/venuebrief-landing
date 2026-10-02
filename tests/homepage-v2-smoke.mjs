@@ -6,6 +6,7 @@ const navigation = ['/product/', '/how-it-works/', '/use-cases/', '/trust-and-sa
 for (const file of routes) {
   const html = fs.readFileSync(file, 'utf8');
   assert.match(html, /class="wave-field/, `${file} must use the global wave family`);
+  assert.doesNotMatch(html, /class="wave wave--/, `${file} must not retain concentric band markup`);
   assert.match(html, /public-waves\.js/, `${file} must load restrained pointer interaction`);
   assert.match(html, /<a class="nav-action" href="\/early-access\.html#pilot-form"/, `${file} must expose Controlled access as the right-side action`);
   assert.match(html, /<details class="mobile-nav"><summary>Menu<\/summary><nav aria-label="Mobile navigation">/, `${file} must expose semantic mobile navigation`);
@@ -24,18 +25,21 @@ const css = fs.readFileSync('assets/yberium-public.css', 'utf8');
 assert.match(css, /prefers-reduced-motion:reduce/);
 assert.match(css, /overflow-x:hidden/);
 assert.match(css, /pointer-events:none/);
-assert.match(css, /wave--front\{[^}]*animation:wave-front 9\.5s/s, 'front wave must have visibly paced continuous motion');
+assert.match(css, /wave-path--front\{[^}]*animation:path-front 10s/s, 'front path must have visibly paced continuous motion');
 assert.match(css, /radial-gradient/, 'wave field must include atmospheric light and haze');
-assert.match(css, /wave::before,.wave::after/, 'each wave must use translucent layered overlap');
 assert.match(css, /@keyframes atmosphere-breathe/, 'atmospheric haze must move continuously');
-assert.match(css, /@keyframes wave-front\{0%,100%[\s\S]*50%/, 'front wave motion must have a full oscillation cycle');
+assert.match(css, /@keyframes path-front\{0%,100%[\s\S]*50%/, 'front wave path motion must have a full oscillation cycle');
+assert.doesNotMatch(css, /\.wave\{|wave--back|wave--middle|wave--front/, 'retired ellipse-band geometry must not remain');
 assert.doesNotMatch(css, /--wave-shift-[xy]/, 'wave motion must not depend on the retired coupled shift variables');
 const waveJs = fs.readFileSync('assets/public-waves.js', 'utf8');
 assert.match(waveJs, /function setOffsets\(/, 'pointer parallax must be applied separately from continuous CSS motion');
+assert.match(waveJs, /<svg class="wave-scene"/, 'shared script must mount one reusable SVG scene');
+assert.match(waveJs, /C120 470 312 508/, 'scene must use authored cubic wave paths');
+assert.match(waveJs, /wave-path--ribbon/, 'scene must include a translucent crossing ribbon');
 for (const file of routes) {
   const html = fs.readFileSync(file, 'utf8');
-  assert.match(html, /yberium-public\.css\?v=4\.0/, `${file} must load the cache-busted wave CSS`);
-  assert.match(html, /public-waves\.js\?v=2\.0/, `${file} must load the cache-busted wave JS`);
+  assert.match(html, /yberium-public\.css\?v=5\.0/, `${file} must load the cache-busted wave CSS`);
+  assert.match(html, /public-waves\.js\?v=3\.0/, `${file} must load the cache-busted wave JS`);
 }
 assert.match(css, /@media\(max-width:900px\).*\.mobile-nav\{display:block\}/s);
 const controlledAccess = fs.readFileSync('early-access.html', 'utf8');

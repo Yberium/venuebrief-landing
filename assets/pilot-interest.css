@@ -11,8 +11,8 @@
   padding: clamp(24px, 4vw, 48px);
   border: 1px solid var(--line);
   border-radius: 22px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
+  background: var(--paper);
+  box-shadow: 0 18px 50px rgba(32, 37, 34, 0.06);
 }
 
 .pilot-form-intro {
@@ -22,7 +22,7 @@
 
 .pilot-form-intro h2 {
   margin: 0;
-  color: var(--graphite);
+  color: var(--charcoal);
   font-family: Manrope, Inter, sans-serif;
   font-size: clamp(30px, 4vw, 46px);
   line-height: 1.04;
@@ -40,7 +40,7 @@
   margin: 26px 0 0;
   padding: 0;
   list-style: none;
-  color: #4a535d;
+  color: var(--muted);
   font-size: 13px;
   font-weight: 700;
 }
@@ -52,8 +52,8 @@
   place-items: center;
   margin-right: 9px;
   border-radius: 50%;
-  color: var(--graphite);
-  background: var(--signal-lime);
+  color: #fff;
+  background: var(--teal);
   content: "✓";
   font-size: 11px;
   font-weight: 900;
@@ -95,8 +95,8 @@
   padding: 11px 12px;
   border: 1px solid #cfd5da;
   border-radius: 10px;
-  color: var(--ink);
-  background: #fbfcfc;
+  color: var(--charcoal);
+  background: var(--paper);
 }
 
 .pilot-field textarea {
@@ -108,8 +108,8 @@
 .pilot-field input:focus,
 .pilot-field select:focus,
 .pilot-field textarea:focus {
-  border-color: var(--signal-green);
-  background: var(--surface);
+  border-color: var(--teal);
+  background: #fff;
 }
 
 .pilot-honeypot {
@@ -134,7 +134,7 @@
   width: 18px;
   height: 18px;
   margin: 2px 0 0;
-  accent-color: var(--signal-green);
+  accent-color: var(--teal);
 }
 
 .pilot-form-actions {
@@ -146,7 +146,7 @@
 }
 
 .pilot-form-actions .button {
-  border: 1px solid var(--signal-green);
+  border: 1px solid var(--teal);
   cursor: pointer;
 }
 
@@ -177,7 +177,7 @@
 
 .pilot-form-success h3 {
   margin: 0 0 10px;
-  color: var(--graphite);
+  color: var(--charcoal);
   font-family: Manrope, Inter, sans-serif;
   font-size: 28px;
   letter-spacing: -0.04em;
@@ -196,7 +196,7 @@
   padding: 14px 16px;
   border: 1px solid #d7e8bd;
   border-radius: 10px;
-  background: var(--surface);
+  background: var(--paper);
 }
 
 .pilot-reference span {

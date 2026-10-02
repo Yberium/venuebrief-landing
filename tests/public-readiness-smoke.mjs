@@ -19,6 +19,13 @@ for (const file of liveFiles) {
   const html = fs.readFileSync(file, 'utf8');
   assert.doesNotMatch(html, /Yberium Pulse/, `${file} must not expose legacy product branding`);
   assert.doesNotMatch(html, />\s*Pulse\s*</, `${file} must not expose standalone Pulse branding`);
+  for (const legacyReference of [
+    'yberium-pulse-mark.svg',
+    'yberium-pulse.css',
+    'yberium-pulse-fonts.css',
+    'heartbeat',
+    'signal-lime',
+  ]) assert.equal(html.toLowerCase().includes(legacyReference), false, `${file} must not reference ${legacyReference}`);
 }
 
 const home = fs.readFileSync('index.html', 'utf8');
@@ -39,6 +46,10 @@ for (const label of [
 assert.match(home, /<title>Yberium — Hospitality operations intelligence and workforce control<\/title>/);
 assert.match(home, /<link rel="canonical" href="https:\/\/yberium\.com\/">/);
 assert.match(home, /application\/ld\+json/);
+assert.match(home, /"@type":"WebSite"/);
+assert.doesNotMatch(home, /"@type":"Organization"/);
+assert.match(home, /Yberium is open to controlled design-partner enquiries before wider availability\./);
+assert.doesNotMatch(home, /working with a limited number of design partners/i);
 assert.doesNotMatch(home, /Yberium Control|Readiness Core|signal-lime|KPI/i);
 for (const route of ['/privacy/', '/terms/', '/support/']) {
   assert.ok(home.includes(route), `home must link ${route}`);
@@ -47,6 +58,7 @@ for (const route of ['/privacy/', '/terms/', '/support/']) {
 const manifest = JSON.parse(fs.readFileSync('site.webmanifest', 'utf8'));
 assert.equal(manifest.name, 'Yberium');
 assert.equal(manifest.short_name, 'Yberium');
+assert.doesNotMatch(JSON.stringify(manifest), /yberium-pulse|heartbeat|signal-lime/i);
 
 const sitemap = fs.readFileSync('sitemap.xml', 'utf8');
 for (const url of ['https://yberium.com/','https://yberium.com/sample-shift-brief.html','https://yberium.com/privacy/','https://yberium.com/terms/','https://yberium.com/support/']) {

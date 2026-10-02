@@ -24,14 +24,17 @@ const css = fs.readFileSync('assets/yberium-public.css', 'utf8');
 assert.match(css, /prefers-reduced-motion:reduce/);
 assert.match(css, /overflow-x:hidden/);
 assert.match(css, /pointer-events:none/);
-assert.match(css, /wave--front\{[^}]*animation:wave-front 8\.5s/s, 'front wave must have visibly paced continuous motion');
+assert.match(css, /wave--front\{[^}]*animation:wave-front 9\.5s/s, 'front wave must have visibly paced continuous motion');
+assert.match(css, /radial-gradient/, 'wave field must include atmospheric light and haze');
+assert.match(css, /wave::before,.wave::after/, 'each wave must use translucent layered overlap');
+assert.match(css, /@keyframes atmosphere-breathe/, 'atmospheric haze must move continuously');
 assert.match(css, /@keyframes wave-front\{0%,100%[\s\S]*50%/, 'front wave motion must have a full oscillation cycle');
 assert.doesNotMatch(css, /--wave-shift-[xy]/, 'wave motion must not depend on the retired coupled shift variables');
 const waveJs = fs.readFileSync('assets/public-waves.js', 'utf8');
 assert.match(waveJs, /function setOffsets\(/, 'pointer parallax must be applied separately from continuous CSS motion');
 for (const file of routes) {
   const html = fs.readFileSync(file, 'utf8');
-  assert.match(html, /yberium-public\.css\?v=3\.0/, `${file} must load the cache-busted wave CSS`);
+  assert.match(html, /yberium-public\.css\?v=4\.0/, `${file} must load the cache-busted wave CSS`);
   assert.match(html, /public-waves\.js\?v=2\.0/, `${file} must load the cache-busted wave JS`);
 }
 assert.match(css, /@media\(max-width:900px\).*\.mobile-nav\{display:block\}/s);

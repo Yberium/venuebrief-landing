@@ -22,9 +22,24 @@ for (const file of liveFiles) {
 }
 
 const home = fs.readFileSync('index.html', 'utf8');
-for (const label of ['Yberium Control', 'Yberium Brief', 'Yberium Relay']) {
-  assert.match(home, new RegExp(label), `home must expose ${label}`);
-}
+for (const label of [
+  'HOSPITALITY OPERATIONS',
+  'A new way to run hospitality.',
+  'Turn supported operational information into structured, reviewable guidance — without inventing what isn’t known.',
+  'Yberium Hub',
+  'Supported input',
+  'Missing information',
+  'Bounded result',
+  'Human authority',
+  'AI reasoning is not business authority.',
+  'Available now',
+  'Built on trust',
+]) assert.ok(home.includes(label), `home must expose canonical content: ${label}`);
+
+assert.match(home, /<title>Yberium — Hospitality operations intelligence and workforce control<\/title>/);
+assert.match(home, /<link rel="canonical" href="https:\/\/yberium\.com\/">/);
+assert.match(home, /application\/ld\+json/);
+assert.doesNotMatch(home, /Yberium Control|Readiness Core|signal-lime|KPI/i);
 for (const route of ['/privacy/', '/terms/', '/support/']) {
   assert.ok(home.includes(route), `home must link ${route}`);
 }
@@ -34,9 +49,20 @@ assert.equal(manifest.name, 'Yberium');
 assert.equal(manifest.short_name, 'Yberium');
 
 const sitemap = fs.readFileSync('sitemap.xml', 'utf8');
-for (const url of ['https://yberium.com/privacy/','https://yberium.com/terms/','https://yberium.com/support/']) {
+for (const url of ['https://yberium.com/','https://yberium.com/sample-shift-brief.html','https://yberium.com/privacy/','https://yberium.com/terms/','https://yberium.com/support/']) {
   assert.ok(sitemap.includes(url), `sitemap must include ${url}`);
 }
+
+const robots = fs.readFileSync('robots.txt', 'utf8');
+assert.match(robots, /^User-agent: \*$/m);
+assert.match(robots, /^Allow: \/$/m);
+assert.match(robots, /^Sitemap: https:\/\/yberium\.com\/sitemap\.xml$/m);
+
+const sample = fs.readFileSync('sample-shift-brief.html', 'utf8');
+assert.match(sample, /<link rel="canonical" href="https:\/\/yberium\.com\/sample-shift-brief\.html">/);
+assert.match(sample, /Synthetic sample:/);
+assert.match(sample, /not a live product result/i);
+assert.match(sample, /Human review required/);
 
 const consent = fs.readFileSync('oauth/consent/index.html', 'utf8');
 const consentScriptPath = 'assets/oauth-consent.js';

@@ -18,7 +18,7 @@ assert.match(html, /name="operationalProblem"/);
 assert.match(html, /name="consent"/);
 assert.match(html, /id="pilotFormSuccess"/);
 assert.match(js, /\/config/);
-assert.match(js, /Register pilot interest/);
+assert.match(js, /Submit design-partner enquiry/);
 assert.match(js, /pilotFormReference/);
 assert.match(css, /\.pilot-form-panel/);
 assert.match(css, /@media \(max-width: 620px\)/);

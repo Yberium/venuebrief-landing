@@ -8,7 +8,7 @@
     try { body = await response.json(); }
     catch { throw new Error('Yberium returned an unreadable response.'); }
     if (!response.ok || !body?.ok) {
-      const error = new Error(clean(body?.message) || 'The pilot registration could not be submitted.');
+      const error = new Error(clean(body?.message) || 'The design-partner enquiry could not be submitted.');
       error.details = Array.isArray(body?.details) ? body.details : [];
       throw error;
     }
@@ -51,18 +51,18 @@
     async function checkAvailability() {
       if (!endpoint) {
         submit.disabled = true;
-        setStatus('Pilot registration is temporarily unavailable.', 'error');
+        setStatus('Controlled access is temporarily unavailable.', 'error');
         return;
       }
       try {
         const response = await windowObject.fetch(`${endpoint}/config`, { headers: { accept: 'application/json' } });
         const body = await readJson(response);
-        if (!body.enabled) throw new Error('Pilot registration is temporarily unavailable.');
+        if (!body.enabled) throw new Error('Controlled access is temporarily unavailable.');
         submit.disabled = false;
-        setStatus('No payment is required. Yberium reviews each request before issuing a pilot invitation.');
+        setStatus('No payment is required. Yberium reviews each enquiry before offering controlled access.');
       } catch (error) {
         submit.disabled = true;
-        setStatus(clean(error?.message) || 'Pilot registration is temporarily unavailable.', 'error');
+        setStatus(clean(error?.message) || 'Controlled access is temporarily unavailable.', 'error');
       }
     }
 
@@ -87,7 +87,7 @@
 
       submit.disabled = true;
       submit.textContent = 'Submitting…';
-      setStatus('Submitting your pilot request securely…');
+      setStatus('Submitting your design-partner enquiry securely…');
 
       try {
         const response = await windowObject.fetch(endpoint, {
@@ -101,10 +101,10 @@
         success.hidden = false;
         success.focus();
       } catch (error) {
-        setStatus(clean(error?.message) || 'The pilot registration could not be submitted.', 'error');
+        setStatus(clean(error?.message) || 'The design-partner enquiry could not be submitted.', 'error');
         focusFirstError(error.details);
         submit.disabled = false;
-        submit.textContent = 'Register pilot interest';
+        submit.textContent = 'Submit design-partner enquiry';
       }
     });
 

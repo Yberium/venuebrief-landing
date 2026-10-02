@@ -19,12 +19,49 @@ for (const file of liveFiles) {
   const html = fs.readFileSync(file, 'utf8');
   assert.doesNotMatch(html, /Yberium Pulse/, `${file} must not expose legacy product branding`);
   assert.doesNotMatch(html, />\s*Pulse\s*</, `${file} must not expose standalone Pulse branding`);
+  for (const legacyReference of [
+    'yberium-pulse-mark.svg',
+    'yberium-pulse.css',
+    'yberium-pulse-fonts.css',
+    'heartbeat',
+    'signal-lime',
+  ]) assert.equal(html.toLowerCase().includes(legacyReference), false, `${file} must not reference ${legacyReference}`);
+  for (const stalePositioning of [
+    'Yberium Pilot Access',
+    'Private product pilot',
+    'Pilot registration',
+    'Know the shift before it starts.',
+    'Shift readiness and operational control for hospitality teams.',
+    'Pilot access',
+    'private pilot',
+    'structured pilot',
+    'pilot-stage',
+  ]) assert.equal(html.toLowerCase().includes(stalePositioning.toLowerCase()), false, `${file} must not expose stale positioning: ${stalePositioning}`);
 }
 
 const home = fs.readFileSync('index.html', 'utf8');
-for (const label of ['Yberium Control', 'Yberium Brief', 'Yberium Relay']) {
-  assert.match(home, new RegExp(label), `home must expose ${label}`);
-}
+for (const label of [
+  'HOSPITALITY OPERATIONS',
+  'A new way to run hospitality.',
+  'Turn supported operational information into structured, reviewable guidance — without inventing what isn’t known.',
+  'Yberium Hub',
+  'Supported input',
+  'Missing information',
+  'Bounded result',
+  'Human authority',
+  'AI reasoning is not business authority.',
+  'Available now',
+  'Built on trust',
+]) assert.ok(home.includes(label), `home must expose canonical content: ${label}`);
+
+assert.match(home, /<title>Yberium — Hospitality operations intelligence and workforce control<\/title>/);
+assert.match(home, /<link rel="canonical" href="https:\/\/yberium\.com\/">/);
+assert.match(home, /application\/ld\+json/);
+assert.match(home, /"@type":"WebSite"/);
+assert.doesNotMatch(home, /"@type":"Organization"/);
+assert.match(home, /Yberium is open to controlled design-partner enquiries before wider availability\./);
+assert.doesNotMatch(home, /working with a limited number of design partners/i);
+assert.doesNotMatch(home, /Yberium Control|Readiness Core|signal-lime|KPI/i);
 for (const route of ['/privacy/', '/terms/', '/support/']) {
   assert.ok(home.includes(route), `home must link ${route}`);
 }
@@ -32,11 +69,23 @@ for (const route of ['/privacy/', '/terms/', '/support/']) {
 const manifest = JSON.parse(fs.readFileSync('site.webmanifest', 'utf8'));
 assert.equal(manifest.name, 'Yberium');
 assert.equal(manifest.short_name, 'Yberium');
+assert.doesNotMatch(JSON.stringify(manifest), /yberium-pulse|heartbeat|signal-lime/i);
 
 const sitemap = fs.readFileSync('sitemap.xml', 'utf8');
-for (const url of ['https://yberium.com/privacy/','https://yberium.com/terms/','https://yberium.com/support/']) {
+for (const url of ['https://yberium.com/','https://yberium.com/sample-shift-brief.html','https://yberium.com/privacy/','https://yberium.com/terms/','https://yberium.com/support/']) {
   assert.ok(sitemap.includes(url), `sitemap must include ${url}`);
 }
+
+const robots = fs.readFileSync('robots.txt', 'utf8');
+assert.match(robots, /^User-agent: \*$/m);
+assert.match(robots, /^Allow: \/$/m);
+assert.match(robots, /^Sitemap: https:\/\/yberium\.com\/sitemap\.xml$/m);
+
+const sample = fs.readFileSync('sample-shift-brief.html', 'utf8');
+assert.match(sample, /<link rel="canonical" href="https:\/\/yberium\.com\/sample-shift-brief\.html">/);
+assert.match(sample, /Synthetic sample:/);
+assert.match(sample, /not a live product result/i);
+assert.match(sample, /Human review required/);
 
 const consent = fs.readFileSync('oauth/consent/index.html', 'utf8');
 const consentScriptPath = 'assets/oauth-consent.js';

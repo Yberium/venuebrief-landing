@@ -41,7 +41,7 @@ for (const file of liveFiles) {
 
 const home = fs.readFileSync('index.html', 'utf8');
 for (const label of [
-  'YBERIUM',
+  'Yberium',
   'A new way to run hospitality.',
   'See Yberium in action',
   'How it works',

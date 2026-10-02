@@ -14,17 +14,18 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yberium.com/early-access.html">
   <link rel="stylesheet" href="assets/yberium-fonts.css?v=1.0">
-  <link rel="stylesheet" href="assets/yberium-public.css?v=1.0">
+  <link rel="stylesheet" href="assets/yberium-public.css?v=2.0">
+  <script type="module" src="/assets/public-waves.js"></script>
   <script src="assets/pilot-interest.js?v=1.0" defer></script>
 </head>
-<body>
+<body class="public-page page-controlled-access">
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="wave-field wave-field--subpage" aria-hidden="true"><span class="wave wave--back"></span><span class="wave wave--middle"></span><span class="wave wave--front"></span></div>
 
   <header class="site-header">
-    <div class="header-inner">
-      <a class="wordmark" href="index.html" aria-label="Yberium home">YBERIUM</a>
-      <nav class="site-nav" aria-label="Primary navigation"><a href="index.html#product">Product</a><a href="sample-shift-brief.html">Sample brief</a><a href="feedback.html">Feedback</a></nav>
-      <div class="header-actions"><a class="button quiet" href="index.html">Home</a><a class="button primary" href="https://yberium.github.io/Yberium-venuebrief-demo/">Try the demo</a></div>
+    <div class="shell nav-wrap">
+      <a class="wordmark" href="/" aria-label="Yberium home">YBERIUM</a>
+      <nav class="site-nav" aria-label="Primary navigation"><a href="/product/">Product</a><a href="/how-it-works/">How it works</a><a href="/use-cases/">Use cases</a><a href="/trust-and-safety/">Trust &amp; safety</a><a href="/support/">Support</a></nav><a class="nav-action" href="/early-access.html#pilot-form" aria-current="page">Controlled access</a><details class="mobile-nav"><summary>Menu</summary><nav aria-label="Mobile navigation"><a href="/product/">Product</a><a href="/how-it-works/">How it works</a><a href="/use-cases/">Use cases</a><a href="/trust-and-safety/">Trust &amp; safety</a><a href="/support/">Support</a><a class="mobile-nav-action" href="/early-access.html#pilot-form" aria-current="page">Controlled access</a></nav></details>
     </div>
   </header>
 
@@ -38,14 +39,6 @@
       </section>
 
       <div class="access-grid">
-        <article class="price-card">
-          <span class="price-label">Explore</span>
-          <h3>Public demo</h3>
-          <div class="price">£0</div>
-          <p>Try the full product story with illustrative data before sharing any operational context.</p>
-          <ul class="price-list"><li>Interactive shift flow</li><li>Sample Brief and Relay</li><li>No live staff data required</li></ul>
-          <a class="button" href="https://yberium.github.io/Yberium-venuebrief-demo/">Open demo</a>
-        </article>
 
         <article class="price-card featured">
           <span class="price-label">Design-partner enquiry</span>
@@ -60,8 +53,8 @@
           <span class="price-label">Commercial launch</span>
           <h3>Subscriptions</h3>
           <div class="price">Not open <small>yet</small></div>
-          <p>The account, AI-credit and Stripe checkout foundation is already built, but Stripe is intentionally unconfigured until the offer and customer protections are ready.</p>
-          <ul class="price-list"><li>Final pricing still to be confirmed</li><li>Billing and cancellation controls required</li><li>Terms and privacy documents required</li></ul>
+          <p>Public subscriptions are not open. Pricing and customer terms will be published before any commercial launch.</p>
+          <ul class="price-list"><li>Final pricing is still to be confirmed</li><li>No payment is taken on this page</li><li>Controlled enquiries remain separate</li></ul>
           <a class="button" href="feedback.html">Help shape the offer</a>
         </article>
 
@@ -109,7 +102,7 @@
             <h3 id="pilot-success-title">Your enquiry is registered.</h3>
             <p>Yberium will review the operating context before deciding whether a controlled evaluation may be appropriate.</p>
             <div class="pilot-reference"><span>Reference</span><strong id="pilotFormReference"></strong></div>
-            <a class="button" href="https://yberium.github.io/Yberium-venuebrief-demo/">Return to the demo</a>
+            <a class="button" href="/product/">View the product</a>
           </section>
         </div>
       </section>
@@ -125,7 +118,7 @@
     <div class="page-shell">
       <div class="footer-inner">
         <div><a class="wordmark" href="index.html" aria-label="Yberium home">YBERIUM</a><p class="footer-copy">Structured, reviewable guidance for hospitality operations.</p></div>
-        <nav class="footer-links" aria-label="Product links"><strong>Product</strong><a href="index.html#product">Modules</a><a href="sample-shift-brief.html">Sample brief</a><a href="https://yberium.github.io/Yberium-venuebrief-demo/">Public demo</a></nav>
+        <nav class="footer-links" aria-label="Product links"><strong>Product</strong><a href="/product/">Modules</a><a href="sample-shift-brief.html">Sample brief</a><a href="/product/">Product overview</a></nav>
         <nav class="footer-links" aria-label="Contact links"><strong>Contact</strong><a href="mailto:hello@yberium.com">General enquiries</a><a href="mailto:pilot@yberium.com">Controlled access</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav>
       </div>
       <div class="footer-bottom"><span>© 2026 Yberium.</span><span>Hospitality operations guidance with human authority.</span></div>

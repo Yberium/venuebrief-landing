@@ -26,6 +26,17 @@ for (const file of liveFiles) {
     'heartbeat',
     'signal-lime',
   ]) assert.equal(html.toLowerCase().includes(legacyReference), false, `${file} must not reference ${legacyReference}`);
+  for (const stalePositioning of [
+    'Yberium Pilot Access',
+    'Private product pilot',
+    'Pilot registration',
+    'Know the shift before it starts.',
+    'Shift readiness and operational control for hospitality teams.',
+    'Pilot access',
+    'private pilot',
+    'structured pilot',
+    'pilot-stage',
+  ]) assert.equal(html.toLowerCase().includes(stalePositioning.toLowerCase()), false, `${file} must not expose stale positioning: ${stalePositioning}`);
 }
 
 const home = fs.readFileSync('index.html', 'utf8');

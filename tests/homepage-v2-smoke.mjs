@@ -28,6 +28,8 @@ assert.match(css, /pointer-events:none/);
 assert.match(css, /wave-path--front\{[^}]*animation:path-front 10s/s, 'front path must have visibly paced continuous motion');
 assert.match(css, /radial-gradient/, 'wave field must include atmospheric light and haze');
 assert.match(css, /@keyframes atmosphere-breathe/, 'atmospheric haze must move continuously');
+assert.match(css, /\.wave-scene\{[^}]*opacity:\.9[^}]*translateY\(5%\)/s, 'desktop composition must keep the tuned lower, translucent crop');
+assert.match(css, /@media\(max-width:600px\)\{\.wave-scene\{opacity:\.82/, 'mobile composition must use the lighter tuned treatment');
 assert.match(css, /@keyframes path-front\{0%,100%[\s\S]*50%/, 'front wave path motion must have a full oscillation cycle');
 assert.doesNotMatch(css, /\.wave\{|wave--back|wave--middle|wave--front/, 'retired ellipse-band geometry must not remain');
 assert.doesNotMatch(css, /--wave-shift-[xy]/, 'wave motion must not depend on the retired coupled shift variables');
@@ -38,7 +40,7 @@ assert.match(waveJs, /C120 470 312 508/, 'scene must use authored cubic wave pat
 assert.match(waveJs, /wave-path--ribbon/, 'scene must include a translucent crossing ribbon');
 for (const file of routes) {
   const html = fs.readFileSync(file, 'utf8');
-  assert.match(html, /yberium-public\.css\?v=5\.0/, `${file} must load the cache-busted wave CSS`);
+  assert.match(html, /yberium-public\.css\?v=5\.1/, `${file} must load the cache-busted wave CSS`);
   assert.match(html, /public-waves\.js\?v=3\.0/, `${file} must load the cache-busted wave JS`);
 }
 assert.match(css, /@media\(max-width:900px\).*\.mobile-nav\{display:block\}/s);

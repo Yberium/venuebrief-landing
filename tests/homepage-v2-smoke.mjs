@@ -8,6 +8,8 @@ for (const file of routes) {
   assert.match(html, /class="wave-field/, `${file} must use the global wave family`);
   assert.doesNotMatch(html, /class="wave wave--/, `${file} must not retain concentric band markup`);
   assert.match(html, /public-waves\.js/, `${file} must load restrained pointer interaction`);
+  assert.doesNotMatch(html, />YBERIUM</, `${file} must use the visible Yberium wordmark treatment`);
+  assert.match(html, /class="wordmark"[^>]*>Yberium<\/a>/, `${file} must show the Yberium wordmark`);
   assert.match(html, /<a class="nav-action" href="\/early-access\.html#pilot-form"/, `${file} must expose Controlled access as the right-side action`);
   assert.match(html, /<details class="mobile-nav"><summary>Menu<\/summary><nav aria-label="Mobile navigation">/, `${file} must expose semantic mobile navigation`);
   assert.match(html, /class="mobile-nav-action" href="\/early-access\.html#pilot-form"/, `${file} mobile navigation must expose Controlled access`);
@@ -29,7 +31,9 @@ assert.match(css, /wave-path--front\{[^}]*animation:path-front 10s/s, 'front pat
 assert.match(css, /radial-gradient/, 'wave field must include atmospheric light and haze');
 assert.match(css, /@keyframes atmosphere-breathe/, 'atmospheric haze must move continuously');
 assert.match(css, /\.wave-scene\{[^}]*opacity:\.9[^}]*translateY\(5%\)/s, 'desktop composition must keep the tuned lower, translucent crop');
-assert.match(css, /@media\(max-width:600px\)\{\.wave-scene\{opacity:\.82/, 'mobile composition must use the lighter tuned treatment');
+assert.match(css, /\.hero-brand\{[^}]*letter-spacing:\.012em/, 'hero wordmark must use compact natural tracking');
+assert.match(css, /@media\(max-width:600px\)\{\.wave-scene\{transform:translateY\(9%\) scale\(1\.08\)/, 'mobile may adapt the shared scene only through crop and scale');
+assert.doesNotMatch(css, /@media\(max-width:600px\)[^}]*wave-scene\{[^}]*opacity:/s, 'mobile must retain desktop wave depth rather than use a reduced placeholder');
 assert.match(css, /@keyframes path-front\{0%,100%[\s\S]*50%/, 'front wave path motion must have a full oscillation cycle');
 assert.doesNotMatch(css, /\.wave\{|wave--back|wave--middle|wave--front/, 'retired ellipse-band geometry must not remain');
 assert.doesNotMatch(css, /--wave-shift-[xy]/, 'wave motion must not depend on the retired coupled shift variables');
@@ -40,7 +44,7 @@ assert.match(waveJs, /C120 470 312 508/, 'scene must use authored cubic wave pat
 assert.match(waveJs, /wave-path--ribbon/, 'scene must include a translucent crossing ribbon');
 for (const file of routes) {
   const html = fs.readFileSync(file, 'utf8');
-  assert.match(html, /yberium-public\.css\?v=5\.1/, `${file} must load the cache-busted wave CSS`);
+  assert.match(html, /yberium-public\.css\?v=5\.2/, `${file} must load the cache-busted wave CSS`);
   assert.match(html, /public-waves\.js\?v=3\.0/, `${file} must load the cache-busted wave JS`);
 }
 assert.match(css, /@media\(max-width:900px\).*\.mobile-nav\{display:block\}/s);

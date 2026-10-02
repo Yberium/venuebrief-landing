@@ -103,4 +103,4 @@ Performance and accessibility boundaries:
 `PUBLIC_VISUAL_REFERENCE = RICH_WAVES_CANONICAL`
 `GLOBAL_PAGE_EFFECT = REQUIRED`
 
-Authority issue: #undefined
+Authority issue: #16

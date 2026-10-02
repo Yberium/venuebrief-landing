@@ -22,6 +22,10 @@ assert.match(home, /<p class="hero-brand" aria-hidden="true">Yberium<\/p>/);
 assert.match(home, /A new way to run hospitality\./);
 assert.match(home, /See Yberium in action[\s\S]*href="\/product\/"|href="\/product\/"[\s\S]*See Yberium in action/);
 assert.match(home, /href="\/how-it-works\/">How it works/);
+for (const label of ['ChatGPT', 'Ask naturally', 'Yberium', 'Analyse &amp; verify', 'You', 'Review &amp; decide', 'AI reasoning is not business authority.']) {
+  assert.ok(home.includes(label), `home interaction rail must include ${label}`);
+}
+assert.match(home, /class="interaction-rail" aria-label="How people work with Yberium"/, 'interaction rail must expose an accessible label');
 assert.doesNotMatch(home, /<footer|hub-panel|card-grid|href="#(?!main)/);
 const css = fs.readFileSync('assets/yberium-public.css', 'utf8');
 assert.match(css, /prefers-reduced-motion:reduce/);
@@ -31,6 +35,10 @@ assert.match(css, /wave-path--front\{[^}]*animation:path-front 10s/s, 'front pat
 assert.match(css, /radial-gradient/, 'wave field must include atmospheric light and haze');
 assert.match(css, /@keyframes atmosphere-breathe/, 'atmospheric haze must move continuously');
 assert.match(css, /\.wave-scene\{[^}]*opacity:\.9[^}]*translateY\(5%\)/s, 'desktop composition must keep the tuned lower, translucent crop');
+assert.match(css, /\.interaction-rail ol\{[^}]*grid-template-columns:repeat\(3,1fr\)/, 'interaction rail must remain compact and horizontal');
+assert.match(css, /\.content-grid span\{[^}]*24px/, 'inner-page card numerals must have stronger hierarchy');
+assert.match(css, /\.content-grid h2\{[^}]*650 23px/, 'inner-page card headings must be larger and stronger');
+assert.match(css, /\.content-grid p\{[^}]*font-size:16px/, 'inner-page card body copy must be more readable');
 assert.match(css, /\.hero-brand\{[^}]*letter-spacing:\.012em/, 'hero wordmark must use compact natural tracking');
 assert.match(css, /@media\(max-width:600px\)\{\.wave-scene\{transform:translateY\(9%\) scale\(1\.08\)/, 'mobile may adapt the shared scene only through crop and scale');
 assert.doesNotMatch(css, /@media\(max-width:600px\)[^}]*wave-scene\{[^}]*opacity:/s, 'mobile must retain desktop wave depth rather than use a reduced placeholder');
@@ -44,7 +52,7 @@ assert.match(waveJs, /C120 470 312 508/, 'scene must use authored cubic wave pat
 assert.match(waveJs, /wave-path--ribbon/, 'scene must include a translucent crossing ribbon');
 for (const file of routes) {
   const html = fs.readFileSync(file, 'utf8');
-  assert.match(html, /yberium-public\.css\?v=5\.2/, `${file} must load the cache-busted wave CSS`);
+  assert.match(html, /yberium-public\.css\?v=5\.3/, `${file} must load the cache-busted wave CSS`);
   assert.match(html, /public-waves\.js\?v=3\.0/, `${file} must load the cache-busted wave JS`);
 }
 assert.match(css, /@media\(max-width:900px\).*\.mobile-nav\{display:block\}/s);

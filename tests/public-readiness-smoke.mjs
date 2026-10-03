@@ -50,6 +50,9 @@ for (const label of [
 
 assert.match(home, /<title>Yberium — Hospitality operations intelligence and workforce control<\/title>/);
 assert.match(home, /<link rel="canonical" href="https:\/\/yberium\.com\/">/);
+assert.match(home, /<link rel="icon" type="image\/png" sizes="48x48" href="\/favicon-48\.png">/);
+assert.equal(fs.existsSync("favicon-48.png"), true, "final Yberium favicon PNG must exist");
+assert.equal(fs.existsSync("favicon.ico"), true, "favicon.ico fallback must exist");
 assert.match(home, /application\/ld\+json/);
 assert.match(home, /"@type":"WebSite"/);
 assert.doesNotMatch(home, /"@type":"Organization"/);
@@ -61,6 +64,7 @@ for (const route of ['/product/', '/how-it-works/', '/use-cases/', '/trust-and-s
 const manifest = JSON.parse(fs.readFileSync('site.webmanifest', 'utf8'));
 assert.equal(manifest.name, 'Yberium');
 assert.equal(manifest.short_name, 'Yberium');
+assert.deepEqual(manifest.icons, [{ src: '/favicon-48.png', sizes: '48x48', type: 'image/png', purpose: 'any' }]);
 assert.doesNotMatch(JSON.stringify(manifest), /yberium-pulse|heartbeat|signal-lime/i);
 
 const sitemap = fs.readFileSync('sitemap.xml', 'utf8');

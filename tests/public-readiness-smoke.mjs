@@ -43,11 +43,12 @@ const home = fs.readFileSync('index.html', 'utf8');
 for (const label of [
   'Yberium',
   'A new way to run hospitality.',
+  'Know if tonight’s plan will actually work.',
   'See Yberium in action',
   'How it works',
 ]) assert.ok(home.includes(label), `home must expose canonical content: ${label}`);
 
-assert.match(home, /<title>Yberium — A new way to run hospitality<\/title>/);
+assert.match(home, /<title>Yberium — Hospitality operations intelligence and workforce control<\/title>/);
 assert.match(home, /<link rel="canonical" href="https:\/\/yberium\.com\/">/);
 assert.match(home, /application\/ld\+json/);
 assert.match(home, /"@type":"WebSite"/);

@@ -19,7 +19,8 @@ for (const file of routes) {
 const home = fs.readFileSync('index.html', 'utf8');
 assert.match(home, /<body class="home-page">/);
 assert.match(home, /<p class="hero-brand" aria-hidden="true">Yberium<\/p>/);
-assert.match(home, /A new way to run hospitality\./);
+assert.match(home, /Know if tonight’s plan will actually work\./);
+assert.match(home, /class="home-kicker">A new way to run hospitality\.<\/p>/);
 assert.match(home, /See Yberium in action[\s\S]*href="\/product\/"|href="\/product\/"[\s\S]*See Yberium in action/);
 assert.match(home, /href="\/how-it-works\/">How it works/);
 for (const label of ['ChatGPT', 'Ask naturally', 'Yberium', 'Analyse &amp; verify', 'You', 'Review &amp; decide', 'AI reasoning is not business authority.']) {
@@ -37,9 +38,10 @@ assert.match(css, /radial-gradient/, 'wave field must include atmospheric light 
 assert.match(css, /@keyframes atmosphere-breathe/, 'atmospheric haze must move continuously');
 assert.match(css, /\.wave-scene\{[^}]*opacity:\.9[^}]*translateY\(5%\)/s, 'desktop composition must keep the tuned lower, translucent crop');
 assert.match(css, /\.interaction-rail ol\{[^}]*grid-template-columns:repeat\(3,1fr\)/, 'interaction rail must remain compact and horizontal');
-assert.match(css, /\.content-grid span\{[^}]*clamp\(32px,3vw,40px/, 'inner-page card numerals must use the approved desktop range');
-assert.match(css, /@media\(max-width:600px\)[\s\S]*\.content-grid span\{font-size:28px\}/, 'inner-page card numerals must reduce sensibly on mobile');
-assert.match(css, /\.content-grid h2\{[^}]*650 23px/, 'inner-page card headings must be larger and stronger');
+assert.match(css, /\.content-grid\{[^}]*grid-template-columns:1fr/, 'inner pages must use a single centred content column');
+assert.match(css, /\.content-grid span\{[^}]*width:30px[^}]*font:800 10px/, 'inner-page numerals must be subtle progression markers');
+assert.match(css, /@media\(max-width:600px\)[\s\S]*\.content-grid span\{width:28px;height:28px;font-size:9px\}/, 'inner-page progression markers must remain restrained on mobile');
+assert.match(css, /\.content-grid h2\{[^}]*650 clamp\(23px,2\.5vw,29px/, 'inner-page headings must retain clear editorial hierarchy');
 assert.match(css, /\.content-grid p\{[^}]*font-size:16px/, 'inner-page card body copy must be more readable');
 assert.match(css, /\.hero-brand\{[^}]*letter-spacing:\.012em/, 'hero wordmark must use compact natural tracking');
 assert.match(css, /@media\(max-width:600px\)\{\.wave-scene\{transform:translateY\(9%\) scale\(1\.08\)/, 'mobile may adapt the shared scene only through crop and scale');
@@ -54,7 +56,7 @@ assert.match(waveJs, /C120 470 312 508/, 'scene must use authored cubic wave pat
 assert.match(waveJs, /wave-path--ribbon/, 'scene must include a translucent crossing ribbon');
 for (const file of routes) {
   const html = fs.readFileSync(file, 'utf8');
-  assert.match(html, /yberium-public\.css\?v=5\.4/, `${file} must load the cache-busted wave CSS`);
+  assert.match(html, /yberium-public\.css\?v=5\.5/, `${file} must load the cache-busted wave CSS`);
   assert.match(html, /public-waves\.js\?v=3\.0/, `${file} must load the cache-busted wave JS`);
 }
 assert.match(css, /@media\(max-width:900px\).*\.mobile-nav\{display:block\}/s);

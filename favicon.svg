@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Yberium">
+  <defs>
+    <linearGradient id="y" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d7779"/>
+      <stop offset=".5" stop-color="#0b6268"/>
+      <stop offset="1" stop-color="#25c6bd"/>
+    </linearGradient>
+    <linearGradient id="fold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#128f91"/>
+      <stop offset="1" stop-color="#034d58"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="#fdf9ee"/>
+  <path fill="url(#y)" d="M76 92h102c24 0 40 10 55 31l24 34 25-35c15-21 31-30 54-30h101L309 277c-11 16-17 29-17 49v104h-72V326c0-20-5-33-17-50L76 92Z"/>
+  <path fill="url(#fold)" d="M76 92h102c24 0 40 10 55 31l54 76c-16 31-42 48-78 49-31 0-58-8-83-25L76 92Z"/>
+  <path fill="#24bfb6" opacity=".9" d="M126 223c31 22 62 28 93 24 34-4 58-20 69-47 3 22-2 42-15 60-12 16-27 28-46 36-8-10-16-18-24-20-31-9-56-27-77-53Z"/>
+</svg>
